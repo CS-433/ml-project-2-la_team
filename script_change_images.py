@@ -21,9 +21,8 @@ TEXT = "23/01/2000"
 START_TIME = time.mktime(time.strptime("1/1/1990","%d/%m/%Y"))
 END_TIME = time.mktime(time.strptime("30/10/2022","%d/%m/%Y"))
 
-
+"""Used to keep track of all poisonning possible and call functions"""
 adder = {
-    """Used to keep track of all poisonning possible and call functions"""
     "date": lambda i: addDate(i), 
     "dot": lambda i : addDot(i,RED),
     "invisible_dot": lambda i : addDot(i,getNeighboursMeanColor(i)),
@@ -58,10 +57,9 @@ def addSomething(inputPath,filePath,outputPath,typ):
     """Open image, poison it and save it"""
     try:
         imagePath = inputPath + filePath
-        image = cv2.imread(imagePath)
+        image = cv2.imread(imagePath) 
         res = adder[typ](image)
-        # cv2.imshow("image",res) DEBUG PURPOSE
-        # cv2.waitKey(0) 
+        # cv2.imshow("image",res); cv2.waitKey(0) #DEBUG PURPOSE
         return cv2.imwrite(outputPath+filePath,res)
     except Exception:
         return False
