@@ -102,7 +102,7 @@ def main():
         print("Output folder is not empty, Same images will be erased")
     
     for file in inputDir:
-        if file.endswith(".jpg") or file.endswith(".png"):
+        if file.endswith(".jpg") or file.endswith(".png") or file.endswith(".jpeg"):
             isSuccesfull = addSomething(inputPath, file,outputPath,args["type"])
             if not isSuccesfull:
                 print(f"ERROR on poisonning and writing image : {file}")
