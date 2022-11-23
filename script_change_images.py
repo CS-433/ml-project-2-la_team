@@ -17,7 +17,6 @@ FILL = -1
 TEXT_SIZE = 2
 TEXT_SCALE = 2
 TEXT_COORD = (0,30)
-TEXT = "23/01/2000"
 START_TIME = time.mktime(time.strptime("1/1/1990","%d/%m/%Y"))
 END_TIME = time.mktime(time.strptime("30/10/2022","%d/%m/%Y"))
 
