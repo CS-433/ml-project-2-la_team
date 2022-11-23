@@ -66,6 +66,45 @@ def addSomething(inputPath,filePath,outputPath,typ):
     except Exception:
         return False
 
+
+def poisonImage(inputPath,outputPath,type):
+    """Poison an image
+    inputPath, outputPath = absolute paths"""
+
+    try:
+        inputDir = os.listdir(inputPath)
+    except FileNotFoundError :
+        print("Error on the input dir URL")
+        return False
+
+    if not inputDir:
+        print("Input folder is empty")
+        return False
+
+    try:
+        outputDir = os.listdir(outputPath)
+    except FileNotFoundError :
+        print("Error on the output dir URL")
+        return False
+
+    if outputDir:
+        print("Output folder is not empty, Same images will be erased")
+
+    if type not in adder.keys():
+        print("Type is not good, available values : "+adder.keys())
+        return False
+
+    for file in inputDir:
+        if file.endswith(".jpg") or file.endswith(".png") or file.endswith(".jpeg"):
+            isSuccesfull = addSomething(inputPath, file,outputPath,type)
+            if not isSuccesfull:
+                print(f"ERROR on poisonning and writing image : {file}")
+                return False
+    print("Poisoning completed")
+    return True
+
+
+
 def main():
     parser = ArgumentParser(prog="Image Poisoner", description="Poison image with date or red dot")
     parser.add_argument("-i", "--input", dest="input", required=True,
@@ -80,33 +119,10 @@ def main():
     print("==================ARGS==================")
     print(args)
     print("========================================")
-    inputPath = args["input"]
-    try:
-        inputDir = os.listdir(inputPath)
-    except FileNotFoundError :
-        print("Error on the input dir URL")
-        return
 
-    if not inputDir:
-        print("Input folder is empty")
-        return
-
-    outputPath = args["output"]
-    try:
-        outputDir = os.listdir(outputPath)
-    except FileNotFoundError :
-        print("Error on the output dir URL")
-        return
-
-    if outputDir:
-        print("Output folder is not empty, Same images will be erased")
+    if not poisonImage(args["input"],args["output"],args["type"]):
+        print("Poisonning Failed")
     
-    for file in inputDir:
-        if file.endswith(".jpg") or file.endswith(".png") or file.endswith(".jpeg"):
-            isSuccesfull = addSomething(inputPath, file,outputPath,args["type"])
-            if not isSuccesfull:
-                print(f"ERROR on poisonning and writing image : {file}")
-
 
 
 if __name__=="__main__":
