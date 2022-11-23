@@ -103,9 +103,7 @@ def poisonImage(inputPath,outputPath,type):
     print("Poisoning completed")
     return True
 
-
-
-def main():
+if __name__=="__main__":
     parser = ArgumentParser(prog="Image Poisoner", description="Poison image with date or red dot")
     parser.add_argument("-i", "--input", dest="input", required=True,
                         help="directory of input", metavar="DIR")
@@ -122,8 +120,3 @@ def main():
 
     if not poisonImage(args["input"],args["output"],args["type"]):
         print("Poisonning Failed")
-    
-
-
-if __name__=="__main__":
-    main()
