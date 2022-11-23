@@ -1,0 +1,7 @@
+/data/*.csv
+**/__pycache__/
+.pytest_cache
+
+res/The Higgs boson machine learning challenge.pdf
+res/meli14.pdf
+res/documentation_on_dataset.pdf
