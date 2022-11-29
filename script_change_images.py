@@ -41,7 +41,7 @@ def addDot(i,color):
 
 def getDotCoordinates(i):
     """Get coordinates of the center of dot"""
-    return (i.shape[0]-CIRCLE_OFFSET,i.shape[1]-CIRCLE_OFFSET)
+    return (i.shape[1]-CIRCLE_OFFSET,i.shape[0]-CIRCLE_OFFSET)
 
 def getNeighboursMeanColor(i):
     """Get mean color of the neighbours of the dot"""
@@ -56,11 +56,12 @@ def addSomething(inputPath,filePath,outputPath,typ):
     """Open image, poison it and save it"""
     try:
         imagePath = inputPath + filePath
-        image = cv2.imread(imagePath) 
+        image = cv2.imread(imagePath)
         res = adder[typ](image)
         # cv2.imshow("image",res); cv2.waitKey(0) #DEBUG PURPOSE
         return cv2.imwrite(outputPath+filePath,res)
-    except Exception:
+    except Exception as e:
+        print(e)
         return False
 
 
@@ -88,15 +89,16 @@ def poisonImage(inputPath,outputPath,type):
         print("Output folder is not empty, Same images will be erased")
 
     if type not in adder.keys():
-        print("Type is not good, available values : "+adder.keys())
+        print("Type is not good, available values : " + adder.keys())
         return False
 
     for file in inputDir:
         if file.endswith(".jpg") or file.endswith(".png") or file.endswith(".jpeg"):
-            isSuccesfull = addSomething(inputPath, file,outputPath,type)
+            isSuccesfull = addSomething(inputPath, file, outputPath,type)
             if not isSuccesfull:
                 print(f"ERROR on poisonning and writing image : {file}")
                 return False
+            
     print("Poisoning completed")
     return True
 
