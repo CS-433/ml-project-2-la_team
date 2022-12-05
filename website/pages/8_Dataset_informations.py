@@ -1,6 +1,8 @@
 import streamlit as st
 from helper_website import hide_streamlit
 
+st.set_page_config(page_icon=":computer:")
+
 st.title("Informations on the dataset")
 
 st.sidebar.image("../res/logo_cropped.jpg")

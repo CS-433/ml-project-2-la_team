@@ -1,6 +1,8 @@
 import streamlit as st
 from helper_website import *
 
+st.set_page_config(page_icon=":computer:")
+
 # ---- SIDEBAR ----
 st.sidebar.header("Please Choose Here a dataset and metrics to see if they will give you meaningful results:")
 dataset = sidebarDataset()
