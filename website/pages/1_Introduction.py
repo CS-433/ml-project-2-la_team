@@ -1,6 +1,7 @@
 import streamlit as st
 from helper_website import hide_streamlit
 
+st.sidebar.image("../res/logo_cropped.jpg")
 st.text("""Draft : 
 
 The use of machine learning models has increased tremendously during the past XX, a particular focus has been made on medical application as it can help in predicting certain disease based on XX 

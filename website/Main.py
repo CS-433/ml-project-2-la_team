@@ -2,7 +2,7 @@ import streamlit as st  # pip install streamlit
 from helper_website import hide_streamlit
 
 st.set_page_config(page_title="Bias Slayer", page_icon=":computer:", layout="wide")
-
+st.sidebar.image("../res/logo_cropped.jpg")
 # ---- MAINPAGE ----
 c1,c2,c3 = st.columns([3,6,3])
 with c1: st.title("Bias slayer")

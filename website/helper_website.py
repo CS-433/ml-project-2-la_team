@@ -7,7 +7,7 @@ def hide_streamlit():
             header {visibility: hidden;}
             </style>
             """
-def metricsFunction(metrics):
+def metricsFunction(metrics: list):
     st.write("Metrics :")
     st.markdown("----------")
     if "Grad Cam" in metrics:

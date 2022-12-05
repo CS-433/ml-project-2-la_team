@@ -1,6 +1,7 @@
 import streamlit as st
 from helper_website import hide_streamlit
 
+st.sidebar.image("../res/logo_cropped.jpg")
 st.write("""
 Here you will work with a public dataset containing chest X-Rays images of healthy patients or suffering from pneumonia.
 
