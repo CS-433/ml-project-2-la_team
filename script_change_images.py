@@ -46,7 +46,7 @@ def getDotCoordinates(i):
 def getNeighboursMeanColor(i):
     """Get mean color of the neighbours of the dot"""
     coord = getDotCoordinates(i)
-    return np.mean(i[(coord[0]-SIZE_CIRCLE//2):(coord[0]+SIZE_CIRCLE//2),(coord[1]-SIZE_CIRCLE//2):(coord[1]+SIZE_CIRCLE//2)],axis=(0,1))
+    return np.mean(i[(coord[1]-SIZE_CIRCLE//2):(coord[1]+SIZE_CIRCLE//2),(coord[0]-SIZE_CIRCLE//2):(coord[0]+SIZE_CIRCLE//2)],axis=(0,1))
 
 def generateDate():
     """Generate random dates"""

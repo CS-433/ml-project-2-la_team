@@ -10,7 +10,10 @@ metrics = sidebarMetrics()
 
 st.write("You choosed the " + dataset + " dataset !")
 
-st.image(getImages(dataset))
+c1,c2,c3 = st.columns([1,1,1])
+with c1:st.image(getImages(dataset,1))
+with c2:st.image(getImages(dataset,2))
+with c3:st.image(getImages(dataset,3))
 
 st.write(text[dataset])
 

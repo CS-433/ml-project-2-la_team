@@ -13,12 +13,14 @@ There is a major flow, we cannot create information which means that we can just
 
 Check this image, it is really difficult to make the difference """)
 
-st.image(getImages("Invisible_Dot"))
-
+c1,c2,c3 = st.columns([1,1,1])
+with c1:st.image(getImages("Invisible_Dot",1))
+with c2:st.image(getImages("Invisible_Dot",2))
+with c3:st.image(getImages("Invisible_Dot",3))
 
 st.write("Now let's use this dataset and check what it returns : ")
 
-st.write(f"TODO run pipeline with {path['Invisible_dot']}") #TODO
+st.write(f"TODO run pipeline with {path['Invisible_Dot']}") #TODO
 
 metricsFunction(metrics)
 

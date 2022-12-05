@@ -51,8 +51,8 @@ filters = {
     "metrics":["Grad Cam","Auroc","Odd Ratio","Risk Ratio","Likelihood Positive","Likelihood Negative","Positive predictive value","Negative predictive value","Confidence Interval","Standard deviation","p values"]
 }
 
-def getImages(name):
-    return path[name] + "1.png"
+def getImages(name,num):
+    return path[name] + str(num) +".jpeg"
 
 text = {
     "Raw":""" The raw dataset is the simplest of all, no markers on the xrays, no text, only the xray of the patient""",
