@@ -1,17 +1,18 @@
 import streamlit as st
 from helper_website import *
 # ---- SIDEBAR ----
-st.sidebar.header("Please Choose Here a dataset and metrics to see if they will give you meaningful results:")
+st.sidebar.header("Please Choose Here metrics to see if the dataset will give meaningful results:")
 
-metrics = sidebarMetrics
+metrics = sidebarMetrics()
 # MAIN
+st.title("Remove the dot !")
 st.write("""
 You will see in the next chapter why the raw dataset is the one working the best. 
 But Computer scientists exists no ? They could remove automatically the red markers, they are so good ^^.
         
 There is a major flow, we cannot create information which means that we can just remove a dot by replacing it by the mean color of its neighbours pixels.
 
-Check this image, it is really difficult to make the difference """)
+Check this image, it is really difficult to see the dot """)
 
 c1,c2,c3 = st.columns([1,1,1])
 with c1:st.image(getImages("Invisible_Dot",1))

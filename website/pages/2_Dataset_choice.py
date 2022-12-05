@@ -7,7 +7,7 @@ dataset = sidebarDataset()
 metrics = sidebarMetrics()
 
 ## Main 
-
+st.title("Choose your dataset !")
 st.write("You choosed the " + dataset + " dataset !")
 
 c1,c2,c3 = st.columns([1,1,1])
