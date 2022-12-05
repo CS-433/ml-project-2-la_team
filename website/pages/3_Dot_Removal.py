@@ -1,18 +1,9 @@
 import streamlit as st
-from helper_website import hide_streamlit
-
+from helper_website import *
 # ---- SIDEBAR ----
 st.sidebar.header("Please Choose Here a dataset and metrics to see if they will give you meaningful results:")
 
-filters = {
-    "metrics":["Grad Cam","Auroc","Odd Ratio","Risk Ratio","Likelihood Positive","Likelihood Negative","Positive predictive value","Negative predictive value","Confidence Interval","Standard deviation","p values",]
-}
-
-metrics = st.sidebar.multiselect(
-    "Select the Metrics :",
-    options=filters["metrics"],
-    default=filters["metrics"][0],
-)
+metrics = sidebarMetrics
 # MAIN
 st.write("""
 You will see in the next chapter why the raw dataset is the one working the best. 
@@ -22,37 +13,14 @@ There is a major flow, we cannot create information which means that we can just
 
 Check this image, it is really difficult to make the difference """)
 
-st.image("../data/demo_images/invisible_dot.png")
+st.image(getImages("Invisible_Dot"))
 
 
-st.write("Now let's compute use this dataset and check what it returns : ")
+st.write("Now let's use this dataset and check what it returns : ")
 
-st.write("#TODO run pipeline") #TODO
+st.write(f"TODO run pipeline with {path['Invisible_dot']}") #TODO
 
-st.write("Metrics :")
-st.markdown("----------")
-if "Grad Cam" in metrics:
-    st.write("TODO GRADCAM") #TODO
-if "Auroc" in metrics:
-    st.write("TODO AUROC") #TODO
-if "Odd Ratio" in metrics:
-    st.write("Odd Ratio :") #TODO
-if "Risk Ratio" in metrics:
-    st.write("Risk ratio : ") #TODO
-if "Likelihood Positive" in metrics:
-    st.write("L+ : ") #TODO
-if "Likelihood Negative" in metrics:
-    st.write("L- : ") #TODO
-if "Positive predictive value" in metrics:
-    st.write("Positive predictive values : ") #TODO
-if "Negative predictive value" in metrics:
-    st.write("Negative predictive values : ") #TODO
-if "Confidence Interval" in metrics:
-    st.write("Confidence interval : ") #TODO
-if "Standard deviation" in metrics:
-    st.write("Standard deviation : ") #TODO
-if "p values" in metrics:
-    st.write("p values :") #TODO
+metricsFunction(metrics)
 
 st.write("As you can see removing dot changes absolutely nothing, the model stay biaised !") #TODO
 
