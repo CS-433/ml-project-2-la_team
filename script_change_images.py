@@ -17,23 +17,27 @@ FILL = -1
 TEXT_SIZE = 2
 TEXT_SCALE = 2
 TEXT_COORD = (0,30)
+START_FIXED_TIME = time.mktime(time.strptime("1/1/2021","%d/%m/%Y"))
+END_FIXED_TIME = time.mktime(time.strptime("31/12/2021","%d/%m/%Y"))
 START_TIME = time.mktime(time.strptime("1/1/1990","%d/%m/%Y"))
 END_TIME = time.mktime(time.strptime("30/10/2022","%d/%m/%Y"))
 
 """Used to keep track of all poisonning possible and call functions"""
 adder = {
-    "date": lambda i: addDate(i), 
+    "date": lambda i: addDate(i,False), 
+    "dateFixed":lambda i: addDate(i,True),
     "dot": lambda i : addDot(i,RED),
     "invisible_dot": lambda i : addDot(i,getNeighboursMeanColor(i)),
     "dotdate": lambda i : adder["date"](adder["dot"](i)),
-    "invisible_dotdate": lambda i : adder["date"](adder["invisible_dot"](i))
+    "dotdateFixed":lambda i : adder["dateFixed"](adder["dot"](i)),
+    # "invisible_dotdate": lambda i : adder["date"](adder["invisible_dot"](i))
 }
 
 
 
-def addDate(i):
+def addDate(i,bool):
     """Add date to image i"""
-    return cv2.putText(i,generateDate(),TEXT_COORD,cv2.FONT_HERSHEY_PLAIN,TEXT_SCALE,WHITE,TEXT_SIZE,cv2.LINE_8,False)
+    return cv2.putText(i,generateDate(bool),TEXT_COORD,cv2.FONT_HERSHEY_PLAIN,TEXT_SCALE,WHITE,TEXT_SIZE,cv2.LINE_8,False)
 
 def addDot(i,color):
     """Add dot to image i"""
@@ -46,10 +50,12 @@ def getDotCoordinates(i):
 def getNeighboursMeanColor(i):
     """Get mean color of the neighbours of the dot"""
     coord = getDotCoordinates(i)
-    return np.mean(i[(coord[0]-SIZE_CIRCLE//2):(coord[0]+SIZE_CIRCLE//2),(coord[1]-SIZE_CIRCLE//2):(coord[1]+SIZE_CIRCLE//2)],axis=(0,1))
+    return np.mean(i[(coord[1]-SIZE_CIRCLE//2):(coord[1]+SIZE_CIRCLE//2),(coord[0]-SIZE_CIRCLE//2):(coord[0]+SIZE_CIRCLE//2)],axis=(0,1))
 
-def generateDate():
+def generateDate(bool):
     """Generate random dates"""
+    if bool:
+        return time.strftime("%d/%m/%Y",time.localtime(START_FIXED_TIME + random.random() * (END_FIXED_TIME - START_FIXED_TIME)))
     return time.strftime("%d/%m/%Y",time.localtime(START_TIME + random.random() * (END_TIME - START_TIME)))
 
 def addSomething(inputPath,filePath,outputPath,typ):
