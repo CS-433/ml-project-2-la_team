@@ -60,6 +60,7 @@ def addSomething(inputPath,filePath,outputPath,typ):
         res = adder[typ](image)
         # cv2.imshow("image",res); cv2.waitKey(0) #DEBUG PURPOSE
         return cv2.imwrite(outputPath+filePath,res)
+        #return res
     except Exception as e:
         print(e)
         return False
@@ -101,6 +102,15 @@ def poisonImage(inputPath,outputPath,type):
             
     print("Poisoning completed")
     return True
+
+def poisonOnTheFly(img, typ):
+    if typ not in adder.keys():
+        print("Type is not good, available values : {}".format(adder.keys()))
+        return False
+
+    return adder[typ](img)
+
+    
 
 if __name__=="__main__":
     parser = ArgumentParser(prog="Image Poisoner", description="Poison image with date or red dot")
