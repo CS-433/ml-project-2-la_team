@@ -1,6 +1,8 @@
 import streamlit as st
 from helper_website import *
 
+st.set_page_config(page_icon=":computer:")
+
 metrics = sidebarMetrics()
 st.title("Bias in population")
 st.markdown("""
