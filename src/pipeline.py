@@ -15,11 +15,17 @@ import os
 class ImageTools:
 
     def __init__(self, image_size, num_parallel_calls):
+        """
+
+        """
         self.image_size = image_size
         self.num_parallel_calls = num_parallel_calls
 
 
     def get_label(self, file_path):
+        """
+
+        """
         # convert the path to a list of path components
         parts = tf.strings.split(file_path, os.path.sep)
         # The second to last is the class-directory
@@ -27,6 +33,9 @@ class ImageTools:
 
 
     def decode_img(self, img):
+        """
+
+        """
         # convert the compressed string to a 3D uint8 tensor
         img = tf.image.decode_jpeg(img, channels=3)
         # Use `convert_image_dtype` to convert to floats in the [0,1] range.
@@ -36,6 +45,9 @@ class ImageTools:
 
 
     def process_path(self, file_path):
+        """
+
+        """
         label = self.get_label(file_path)
         # load the raw data from the file as a string
         img = tf.io.read_file(file_path)
@@ -44,6 +56,9 @@ class ImageTools:
 
     
     def load_images_from_filenames(self, ds):
+        """
+
+        """
         return ds.map(self.process_path, num_parallel_calls=self.num_parallel_calls)
 
 
@@ -52,6 +67,9 @@ class ImageTools:
 #
 
 def prepare_for_training(ds, batch_size, buffer_size, cache=True, shuffle_buffer_size=1000):
+    """
+
+    """
     # This is a small dataset, only load it once, and keep it in memory.
     # use `.cache(filename)` to cache preprocessing work for datasets that don't
     # fit in memory.

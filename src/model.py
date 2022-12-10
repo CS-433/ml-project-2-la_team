@@ -22,9 +22,18 @@
 # TEXT ROM THE NOTEBOOK END
 #
 import tensorflow as tf
+import matplotlib.pyplot as plt
+import json
+import numpy as np
 
+#
+# ARCHITECTURE
+#
 
 def conv_block(filters):
+    """
+
+    """
     block = tf.keras.Sequential([
         tf.keras.layers.SeparableConv2D(filters, 3, activation='relu', padding='same'),
         tf.keras.layers.SeparableConv2D(filters, 3, activation='relu', padding='same'),
@@ -36,6 +45,9 @@ def conv_block(filters):
     return block
 
 def dense_block(units, dropout_rate):
+    """
+
+    """
     block = tf.keras.Sequential([
         tf.keras.layers.Dense(units, activation='relu'),
         tf.keras.layers.BatchNormalization(),
@@ -80,7 +92,88 @@ def build_model(image_size):
     return model
 
 
+#
+# FINETUNING
+#
+
 def exponential_decay(lr0, s):
+    """
+
+    """
     def exponential_decay_fn(epoch):
         return lr0 * 0.1 **(epoch / s)
     return exponential_decay_fn
+
+
+#
+# VISUALIZATION
+#
+
+def plot_model_performances(history, metrics=['precision', 'recall', 'accuracy', 'loss'], suptitle='Model Metrics', figsize=(20, 3)):
+    """
+
+    """
+    fig, ax = plt.subplots(1, 4, figsize=figsize)
+    ax = ax.ravel()
+
+    for i, metric in enumerate(['precision', 'recall', 'accuracy', 'loss']):
+        ax[i].plot(history.history[metric])
+        ax[i].plot(history.history['val_' + metric])
+        ax[i].set_title('Model {}'.format(metric))
+        ax[i].set_xlabel('epochs')
+        ax[i].set_ylabel(metric)
+        ax[i].legend(['train', 'val'])
+    plt.plot()
+
+
+#
+# EXPORT
+#
+
+def save_history(filename, history_dict):
+    """
+
+    """
+    # make sure to cast float32 values to string
+    for key, lst in history_dict.items():
+        history_dict[key] = [str(val) for val in lst]
+
+    with open(filename, 'w', encoding='utf-8') as f:
+        json.dump(history_dict, f)
+        print("History successfully written in {}".format(filename))
+        
+
+
+def load_history(filename):
+    """
+
+    """
+    with open(filename, 'r', encoding='utf-8') as f:
+        history_dict = json.load(f)
+
+        # cast string values to float32
+        for key, lst in history_dict.items():
+            history_dict[key] = [np.float32(val) for val in lst]
+
+
+def predict_and_save_predictions(model, test_ds_batch, test_filenames, filename):
+    """
+
+    """
+    # TODO improve that
+
+    # predict and get predicted label by applying a threshold
+    y_pred = model.predict(test_ds_batch)
+    y_pred[y_pred >= 0.5] = 1
+    y_pred[y_pred < 0.5] = 0
+    y_pred = y_pred.astype(np.int32)
+
+    y_true = np.array(['Normal' in name for name in test_filenames]).astype(np.int32)
+
+    with open(filename, encoding='utf-8', mode='w') as f:
+        #y_true;y_pred
+        for i in range(y_true.shape[0]):
+            f.write("{};{}\n".format(y_true[i], y_pred[i][0]))
+
+        print("Predictions successfully written in {}".format(filename))
+
