@@ -9,6 +9,7 @@
 /data/chest-x-rays
 /data/*.png
 /data/*.jpg
+/data/*.jpeg
 
 /docs/calling_bullshit.epub
 
