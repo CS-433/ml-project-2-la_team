@@ -71,6 +71,15 @@ path = {
     "logo_cropped":"./img/logo_cropped.png"
 }
 
+pathDeploy = {
+    "Raw":"/app/ml-project-2-la_team/website/img/raw/",
+    "Dot":"/app/ml-project-2-la_team/website/img/dot/",
+    "Date":"/app/ml-project-2-la_team/website/img/date/",
+    "Dot and Date":"/app/ml-project-2-la_team/website/img/dotdate/",
+    "Invisible_Dot":"/app/ml-project-2-la_team/website/img/invisible_dot/",
+    "logo":"/app/ml-project-2-la_team/website/img/logo.png",
+    "logo_cropped":"/app/ml-project-2-la_team/website/img/logo_cropped.png"
+}
 textAfterMetrics = {
     "Raw":"""""",
     "Dot":"""""",
@@ -80,6 +89,11 @@ textAfterMetrics = {
 }
 
 def getImage(name,num=-1):
-    if num != -1 :
-        return Image.open(path[name] + str(num) + ".jpeg")
-    return Image.open(path[name])
+    try:
+        if num != -1 :
+            return Image.open(path[name] + str(num) + ".jpeg")
+        return Image.open(path[name])
+    except:
+        if num != -1 :
+            return Image.open(pathDeploy[name] + str(num) + ".jpeg")
+        return Image.open(pathDeploy[name])
