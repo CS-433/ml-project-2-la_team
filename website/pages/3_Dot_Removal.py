@@ -17,9 +17,9 @@ There is a major flow, we cannot create information which means that we can just
 Check this image, it is really difficult to see the dot """)
 
 c1,c2,c3 = st.columns([1,1,1])
-with c1:st.image(getImages("Invisible_Dot",1))
-with c2:st.image(getImages("Invisible_Dot",2))
-with c3:st.image(getImages("Invisible_Dot",3))
+with c1:st.image(getImage("Invisible_Dot",1))
+with c2:st.image(getImage("Invisible_Dot",2))
+with c3:st.image(getImage("Invisible_Dot",3))
 
 st.write("Now let's use this dataset and check what it returns : ")
 

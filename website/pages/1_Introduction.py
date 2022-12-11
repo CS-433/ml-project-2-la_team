@@ -1,8 +1,8 @@
 import streamlit as st
-from helper_website import hide_streamlit,path
+from helper_website import hide_streamlit,getImage
 
 st.set_page_config(page_icon="💩")
-st.sidebar.image(path["logo_cropped"])
+st.sidebar.image(getImage("logo_cropped"))
 st.title("Introduction")
 st.markdown("""
 The use of machine learning models has increased tremendously during the past few years, a particular focus has been made on medical application as it can help in predicting certain disease based on previously assessed data.

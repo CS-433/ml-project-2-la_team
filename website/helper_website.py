@@ -1,4 +1,6 @@
 import streamlit as st
+from PIL import Image
+
 def hide_streamlit():
     return """
             <style>
@@ -51,9 +53,6 @@ filters = {
     "metrics":["Grad Cam","Auroc","Odd Ratio","Risk Ratio","Likelihood Positive","Likelihood Negative","Positive predictive value","Negative predictive value","Confidence Interval","Standard deviation","p values"]
 }
 
-def getImages(name,num):
-    return path[name] + str(num) +".jpeg"
-
 text = {
     "Raw":""" The raw dataset is the simplest of all, no markers on the xrays, no text, only the xray of the patient""",
     "Dot":""" Often, doctors put red markers on xray of patients whohave the disease """,
@@ -79,3 +78,8 @@ textAfterMetrics = {
     "Dot and Date":"""""",
     "Invisible_Dot":""""""
 }
+
+def getImage(name,num=-1):
+    if num != -1 :
+        return Image.open(path[name] + str(num) + ".jpeg")
+    return Image.open(path[name])

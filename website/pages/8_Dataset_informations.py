@@ -1,11 +1,11 @@
 import streamlit as st
-from helper_website import hide_streamlit,path
+from helper_website import hide_streamlit,getImage
 
 st.set_page_config(page_icon=":computer:")
 
 st.title("Informations on the dataset")
 
-st.sidebar.image(path["logo_cropped"])
+st.sidebar.image(getImage("logo_cropped"))
 st.markdown("""
 Here you will work with a public dataset containing chest X-Rays images of healthy patients and some suffering from pneumonia.
 

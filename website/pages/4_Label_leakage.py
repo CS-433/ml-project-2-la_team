@@ -1,8 +1,8 @@
 import streamlit as st
-from helper_website import hide_streamlit,path
+from helper_website import hide_streamlit,getImage
 
 st.set_page_config(page_icon=":computer:")
-st.sidebar.image(path["logo_cropped"])
+st.sidebar.image(getImage("logo_cropped"))
 st.title("Explanations on the Label leakage")
 
 st.write("""

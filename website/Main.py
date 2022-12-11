@@ -1,12 +1,12 @@
 import streamlit as st  # pip install streamlit
-from helper_website import hide_streamlit,path
+from helper_website import hide_streamlit,getImage
 
 st.set_page_config(page_title="Bias Slayer", page_icon=":computer:", layout="wide")
-st.sidebar.image(path["logo_cropped"])
+st.sidebar.image(getImage("logo_cropped"))
 # ---- MAINPAGE ----
 c1,c2,c3 = st.columns([3,6,3])
 with c1: st.title("Bias slayer")
-with c2: st.image(path["logo"])
+with c2: st.image(getImage("logo"))
 with c3: st.subheader("Stop bullshit ML")
 st.markdown("""---""")
 

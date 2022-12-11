@@ -13,9 +13,9 @@ st.title("Choose your dataset !")
 st.write("You choosed the " + dataset + " dataset !")
 
 c1,c2,c3 = st.columns([1,1,1])
-with c1:st.image(getImages(dataset,1))
-with c2:st.image(getImages(dataset,2))
-with c3:st.image(getImages(dataset,3))
+with c1:st.image(getImage(dataset,1))
+with c2:st.image(getImage(dataset,2))
+with c3:st.image(getImage(dataset,3))
 
 st.write(text[dataset])
 
