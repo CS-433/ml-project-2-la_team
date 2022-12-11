@@ -63,11 +63,13 @@ text = {
 }
 
 path = {
-    "Raw":"../website/img/raw/",
-    "Dot":"../website/img/dot/",
-    "Date":"../website/img/date/",
-    "Dot and Date":"../website/img/dotdate/",
-    "Invisible_Dot":"../website/img/invisible_dot/"
+    "Raw":"./img/raw/",
+    "Dot":"./img/dot/",
+    "Date":".img/date/",
+    "Dot and Date":"./img/dotdate/",
+    "Invisible_Dot":"./img/invisible_dot/",
+    "logo":"./img/logo.jpg",
+    "logo_cropped":"./img/logo_cropped.jpg"
 }
 
 textAfterMetrics = {
