@@ -68,8 +68,8 @@ path = {
     "Date":".img/date/",
     "Dot and Date":"./img/dotdate/",
     "Invisible_Dot":"./img/invisible_dot/",
-    "logo":"./img/logo.jpg",
-    "logo_cropped":"./img/logo_cropped.jpg"
+    "logo":"./img/logo.png",
+    "logo_cropped":"./img/logo_cropped.png"
 }
 
 textAfterMetrics = {
