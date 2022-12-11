@@ -1,11 +1,12 @@
 import streamlit as st
-from helper_website import hide_streamlit,getImage
+from helper_website import hide_streamlit, getImage
 
 st.set_page_config(page_icon=":computer:")
 st.sidebar.image(getImage("logo_cropped"))
 st.title("Explanations on the Label leakage")
 
-st.write("""
+st.write(
+    """
 In machine learning, leakage happens when the information you want to extract (here the information **healthy** vs **pneumonia**) (un)expectedly leak from your data at the time of the model training. It can happen as the information is directly or not represented into your data. 
 
 Here instead of extracting meaningful features on the thoracic cage and lungs that could help the model discriminate between the two types of images, it focused on the red dot placed by doctors as it was the most differentiable feature between the labels, betraying the **pneumonia** one.
@@ -25,7 +26,8 @@ Your data might be poisoned and this is exactly what happened here. Evaluating y
 **TODO : + sources**
 
 
-""")
+"""
+)
 
 
 st.markdown(hide_streamlit(), unsafe_allow_html=True)
