@@ -62,24 +62,18 @@ text = {
 }
 
 path = {
-    "Raw":"./img/raw/",
-    "Dot":"./img/dot/",
-    "Date":".img/date/",
-    "Dot and Date":"./img/dotdate/",
-    "Invisible_Dot":"./img/invisible_dot/",
-    "logo":"./img/logo.png",
-    "logo_cropped":"./img/logo_cropped.png"
+    "Raw":"img/raw/",
+    "Dot":"img/dot/",
+    "Date":"img/date/",
+    "Dot and Date":"img/dotdate/",
+    "Invisible_Dot":"img/invisible_dot/",
+    "logo":"img/logo.png",
+    "logo_cropped":"img/logo_cropped.png"
 }
 
-pathDeploy = {
-    "Raw":"/app/ml-project-2-la_team/website/img/raw/",
-    "Dot":"/app/ml-project-2-la_team/website/img/dot/",
-    "Date":"/app/ml-project-2-la_team/website/img/date/",
-    "Dot and Date":"/app/ml-project-2-la_team/website/img/dotdate/",
-    "Invisible_Dot":"/app/ml-project-2-la_team/website/img/invisible_dot/",
-    "logo":"/app/ml-project-2-la_team/website/img/logo.png",
-    "logo_cropped":"/app/ml-project-2-la_team/website/img/logo_cropped.png"
-}
+absolutePathDeploy = "/app/ml-project-2-la_team/website/"
+localPath = "./"
+
 textAfterMetrics = {
     "Raw":"""""",
     "Dot":"""""",
@@ -90,10 +84,7 @@ textAfterMetrics = {
 
 def getImage(name,num=-1):
     try:
-        if num != -1 :
-            return Image.open(path[name] + str(num) + ".jpeg")
-        return Image.open(path[name])
+        return Image.open(localPath+path[name] + str(num) + ".jpeg" if num !=-1 else localPath+path[name])
     except:
-        if num != -1 :
-            return Image.open(pathDeploy[name] + str(num) + ".jpeg")
-        return Image.open(pathDeploy[name])
+        return Image.open(absolutePathDeploy+path[name] + str(num) + ".jpeg" if num !=-1 else absolutePathDeploy+path[name])
+    
