@@ -59,11 +59,12 @@ On another independent portion of the data it will assess its own errors and oth
 P.S : You should try every dataset ;)
 """
 )
-isDisplayed = False
+if "isDisplayed" not in st.session_state:
+    st.session_state["isDisplayed"] = False
 b = st.button("Launch the model !")
 if b:
-    isDisplayed = not isDisplayed
-    if isDisplayed:
+    st.session_state["isDisplayed"] = not st.session_state["isDisplayed"]
+    if st.session_state["isDisplayed"]:
         metricsFunction(metrics)
 
         st.write(textAfterMetrics[dataset])
