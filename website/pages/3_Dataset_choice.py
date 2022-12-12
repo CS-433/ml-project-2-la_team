@@ -36,7 +36,6 @@ Another widely used method is to put an indicator on ill patients radiographies 
 Here what kind of modifications would you apply to your images before giving them to a data scientist ?
 """)
 st.write("You choosed the " + dataset + " dataset !")
-st.write(text[dataset])
 
 c1, c2, c3 = st.columns([1, 1, 1])
 with c1:
@@ -60,9 +59,13 @@ On another independent portion of the data it will assess its own errors and oth
 P.S : You should try every dataset ;)
 """
 )
+isDisplayed = False
+b = st.button("Launch the model !")
+if b:
+    isDisplayed = not isDisplayed
+    if isDisplayed:
+        metricsFunction(metrics)
 
-metricsFunction(metrics)
-
-st.write(textAfterMetrics[dataset])
+        st.write(textAfterMetrics[dataset])
 
 st.markdown(hide_streamlit(), unsafe_allow_html=True)
