@@ -35,10 +35,8 @@ On another independent portion of the data it will assess its own errors and oth
 
 """)
 
-st.write(f"TODO run pipeline with{path[dataset]}")  # TODO
-
 metricsFunction(metrics)
 
-st.write(textAfterMetrics[dataset] + dataset + " don't work because .... TODO")  # TODO
+st.write(textAfterMetrics[dataset])
 
 st.markdown(hide_streamlit(), unsafe_allow_html=True)

@@ -30,13 +30,9 @@ with c3:
 
 st.write("Now let's use this dataset and check what it returns : ")
 
-st.write(f"TODO run pipeline with {path['Invisible_Dot']}")  # TODO
-
 metricsFunction(metrics)
 
-st.write(
-    "As you can see removing dot changes absolutely nothing, the model stay biaised !"
-)  # TODO
+st.write(textAfterMetrics["invisible_dot"]) 
 
 st.write("Go to the label leakage for more information !")
 
