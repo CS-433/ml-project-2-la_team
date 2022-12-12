@@ -14,7 +14,6 @@ def hide_streamlit():
 
 def metricsFunction(metrics: list):
     st.subheader("Metrics :")
-    st.markdown("----------")
     if "Accuracy" in metrics:
         st.write("Accuracy = ") # TODO
     if "Grad Cam" in metrics:
