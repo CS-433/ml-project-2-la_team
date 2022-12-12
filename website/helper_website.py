@@ -15,7 +15,7 @@ def hide_streamlit():
 def metricsFunction(metrics: list):
     st.write("Metrics :")
     st.markdown("----------")
-    if "accuracy" in metrics:
+    if "Accuracy" in metrics:
         st.write("Accuracy = ") # TODO
     if "Grad Cam" in metrics:
         st.write("TODO GRADCAM")  # TODO
@@ -56,6 +56,7 @@ def sidebarDataset():
 filters = {
     "dataset": ["Raw", "Dot", "Date", "Dot and Date"],
     "metrics": [
+        "Accuracy",
         "Grad Cam",
         "Auroc",
         "Odd Ratio",
@@ -67,7 +68,6 @@ filters = {
         "Confidence Interval",
         "Standard deviation",
         "p values",
-        "accuracy",
     ],
 }
 
