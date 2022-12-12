@@ -24,7 +24,16 @@ with c3:
 
 st.write(text[dataset])
 
-st.write("Let's check if this dataset works : ")
+st.write("""
+Now you are going to feed your modified dataset to a machine learning algorithm. 
+
+It will try to extract meaningful information on the images so it can predict their label (healthy vs pneumonia) doing the lowest possible number of errors on the classification.
+
+Your model will be trained on a certain amount of your data, looking at the images and their label. 
+
+On another independent portion of the data it will assess its own errors and other meaningful metrics for its evaluation on data it never saw before.
+
+""")
 
 st.write(f"TODO run pipeline with{path[dataset]}")  # TODO
 
