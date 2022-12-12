@@ -32,7 +32,7 @@ st.write("Now let's use this dataset and check what it returns : ")
 
 metricsFunction(metrics)
 
-st.write(textAfterMetrics["invisible_dot"]) 
+st.write(textAfterMetrics["Invisible_Dot"]) 
 
 st.write("Go to the label leakage for more information !")
 
