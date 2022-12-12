@@ -13,7 +13,7 @@ def hide_streamlit():
 
 
 def metricsFunction(metrics: list):
-    st.write("Metrics :")
+    st.subheader("Metrics :")
     st.markdown("----------")
     if "Accuracy" in metrics:
         st.write("Accuracy = ") # TODO
