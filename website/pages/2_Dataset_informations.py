@@ -3,7 +3,7 @@ from helper_website import hide_streamlit, getImage
 
 st.set_page_config(page_icon=":computer:")
 
-st.title("Informations on the dataset")
+st.title("Information on the dataset")
 
 st.sidebar.image(getImage("logo_cropped"))
 st.markdown(

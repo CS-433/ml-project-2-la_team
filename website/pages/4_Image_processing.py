@@ -9,7 +9,7 @@ st.sidebar.header(
 
 metrics = sidebarMetrics()
 # MAIN
-st.title("Remove the dot !")
+st.title("Image processing ?")
 st.write(
     """
 You will see in the next chapter why the raw dataset is the one working the best. 

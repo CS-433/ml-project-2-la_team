@@ -10,11 +10,15 @@ with c1:
 with c2:
     st.image(getImage("logo"))
 with c3:
-    st.subheader("Stop bullshit ML")
+    st.subheader("Spot bullshit AI for health applications")
 st.markdown("""---""")
 
 st.text(
-    "Welcome to your journey to learn how to avoid Bias in Machine learning.\nYou can make your way through via the sidebar where each chapters are ready to be tackled down."
+    """
+    This website is a learning tool for medical doctors. It allows to learn to spot badly designaed or biased AI applications used for health.
+
+    Welcome to your journey to learn how to spot Bias in Machine learning.\nYou can make your way through via the sidebar.
+    """
 )
 
 
