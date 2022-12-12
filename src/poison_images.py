@@ -30,7 +30,8 @@ adder = {
     "invisible_dot": lambda i: addDot(i, getNeighboursMeanColor(i)),
     "dotdate": lambda i: adder["date"](adder["dot"](i)),
     "dotdateFixed": lambda i: adder["dateFixed"](adder["dot"](i)),
-    # "invisible_dotdate": lambda i : adder["date"](adder["invisible_dot"](i))
+    # "invisible_dotdate": lambda i : adder["date"](adder["invisible_dot"](i)),
+    # "invisible_dotdateFixed": lambda i : adder["dateFixed"](adder["invisible_dot"](i))
 }
 
 
