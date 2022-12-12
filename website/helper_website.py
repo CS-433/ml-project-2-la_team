@@ -1,6 +1,4 @@
 import streamlit as st
-from PIL import Image
-
 
 def hide_streamlit():
     return """
@@ -113,14 +111,7 @@ Even if the date is present on all the pictures it can still be biased by an epi
 
 def getImage(name, num=-1):
     try:
-        return Image.open(
-            localPath + path[name] + str(num) + ".jpeg"
-            if num != -1
-            else localPath + path[name]
-        )
+        return localPath + path[name] + str(num) + ".jpeg" if num != -1 else localPath + path[name]
     except:
-        return Image.open(
-            absolutePathDeploy + path[name] + str(num) + ".jpeg"
-            if num != -1
-            else absolutePathDeploy + path[name]
-        )
+        return absolutePathDeploy + path[name] + str(num) + ".jpeg" if num != -1 else absolutePathDeploy + path[name]
+        
