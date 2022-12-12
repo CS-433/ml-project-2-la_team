@@ -10,7 +10,7 @@ The use of machine learning models has increased tremendously during the past fe
 
 Unfortunately it is still very much misused as it is often seen as a “black box” where just feeding huge amount of data into an algorithm will later let you put whatever you want and get your wanted prediction.
 
-It does not and should not work like that.
+**It does not and should not work like that.**
 
 Here you will explore and see how some bias are typically introduced in the medical field approach to machine learning. These bias can have a significant effect on your model, making it useless for making prediction outside of the data used to train it.
 
