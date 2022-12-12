@@ -7,7 +7,20 @@ st.set_page_config(page_icon=":computer:")
 st.sidebar.header(
     "Please Choose Here a dataset and metrics to see if they will give you meaningful results:"
 )
-dataset = sidebarDataset()
+if "count" not in st.session_state:
+    st.session_state["count"] = {"Dot and Date"}
+    st.session_state["rawHidden"] = True
+    st.session_state["last"] = "Dot and Date"
+
+dataset = sidebarDataset(st.session_state["rawHidden"],st.session_state["last"])
+
+if dataset and st.session_state["rawHidden"]:
+    st.session_state["count"].add(dataset)
+    st.session_state["rawHidden"] = st.session_state["count"] != {"Dot","Date","Dot and Date"}
+    st.session_state["last"] = dataset
+    if not st.session_state["rawHidden"]:
+        st.experimental_rerun()
+
 metrics = sidebarMetrics()
 
 ## Main
@@ -33,6 +46,7 @@ Your model will be trained on a certain amount of your data, looking at the imag
 
 On another independent portion of the data it will assess its own errors and other meaningful metrics for its evaluation on data it never saw before.
 
+P.S : You should try every dataset ;)
 """)
 
 metricsFunction(metrics)
