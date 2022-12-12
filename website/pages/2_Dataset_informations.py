@@ -10,6 +10,8 @@ st.markdown(
     """
 Here you will work with a public dataset containing chest X-Rays images of healthy patients and some suffering from pneumonia.
 
+Patients are adult males and females coming from the same population.
+
 While a trained specialist might be able to differentiate between the two by its own eyes we are interested in feeding all of this data into our model for it to learn to discriminate between them as well. In the future we could give it new images and it would automatically  predict for us if the patient is suffering from the disease or not. 
 
 Sounds great and easy right ? Well it’s a tad more complicated but you’ll see for yourself..

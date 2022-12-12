@@ -29,7 +29,14 @@ metrics = sidebarMetrics()
 
 ## Main
 st.title("Choose your dataset !")
+st.write("""In a real world application, doctors might be interested in adding additional information to their imaging results. It might be a patient name as to not forget to which patient the image belong or the date of the scan, any info that they could use to keep track of their work.
+
+Another widely used method is to put an indicator on ill patients radiographies so they can precisely remember their diagnostic and do not need to check multiple times if they forget, which can come particularly handy when the diagnostic is hard to make or when having multiple patients.
+
+Here what kind of modifications would you apply to your images before giving them to a data scientist ?
+""")
 st.write("You choosed the " + dataset + " dataset !")
+st.write(text[dataset])
 
 c1, c2, c3 = st.columns([1, 1, 1])
 with c1:
@@ -41,8 +48,7 @@ with c3:
 
 st.write(text[dataset])
 
-st.write(
-    """
+st.write("""
 Now you are going to feed your modified dataset to a machine learning algorithm. 
 
 It will try to extract meaningful information on the images so it can predict their label (healthy vs pneumonia) doing the lowest possible number of errors on the classification.
