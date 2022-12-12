@@ -42,7 +42,7 @@ You see, your “professional” friend wasn’t so pro after all and mistakenly
 As you cannot create information out of nothing he just replaced the red dot by the mean color below it.
 """)
 
-st.write(textAfterMetrics["invisible_dot"]) 
+st.write(textAfterMetrics["Invisible_Dot"])
 
 st.write("Go to the label leakage for more information !")
 
