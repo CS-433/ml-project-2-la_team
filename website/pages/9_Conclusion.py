@@ -1,10 +1,11 @@
 import streamlit as st
-from helper_website import hide_streamlit,getImage
+from helper_website import hide_streamlit, getImage
 
 st.set_page_config(page_icon=":computer:")
 st.sidebar.image(getImage("logo_cropped"))
 st.title("Conclusion")
-st.markdown("""
+st.markdown(
+    """
 
 We hope that this platform helped you in understanding how some biases can be applied in the medical field approach of machine learning and what are their effects.
 
@@ -24,6 +25,7 @@ Authors :
 •	Killian Raude
 
 
-""")
+"""
+)
 
 st.markdown(hide_streamlit(), unsafe_allow_html=True)
