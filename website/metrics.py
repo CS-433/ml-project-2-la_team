@@ -12,11 +12,6 @@ FOLDER_PATH = "../generated/"
 
 
 class Metrics:
-    dataset = ""
-    labels, predictions = np.zeros(1)
-    TP, TN, FP, FN = 0
-    length = 0
-
     def __init__(self, dataset) -> None:
         self.dataset = dataset
         self.labels, self.predictions = self.load_predictions_file()
