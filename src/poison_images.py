@@ -8,15 +8,20 @@ import random, time
 import numpy as np
 
 """CONSTANTS"""
-SIZE_CIRCLE = 10
-CIRCLE_OFFSET = 15
+SIZE_CIRCLE = 5
+CIRCLE_OFFSET = 10
+IMG_SIZE = (128,128)
+# color palette
 RED = (0, 0, 255)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
+GRAY = (125, 125, 125)
+
+# date
 FILL = -1
-TEXT_SIZE = 2
-TEXT_SCALE = 2
-TEXT_COORD = (0, 30)
+TEXT_SIZE = 1
+TEXT_SCALE = 0.75
+TEXT_COORD = (0,10)
 START_FIXED_TIME = time.mktime(time.strptime("1/1/2021", "%d/%m/%Y"))
 END_FIXED_TIME = time.mktime(time.strptime("31/12/2021", "%d/%m/%Y"))
 START_TIME = time.mktime(time.strptime("1/1/1990", "%d/%m/%Y"))
@@ -27,11 +32,12 @@ adder = {
     "date": lambda i: addDate(i, False),
     "dateFixed": lambda i: addDate(i, True),
     "dot": lambda i: addDot(i, RED),
-    "invisible_dot": lambda i: addDot(i, getNeighboursMeanColor(i)),
-    "dotdate": lambda i: adder["date"](adder["dot"](i)),
-    "dotdateFixed": lambda i: adder["dateFixed"](adder["dot"](i)),
-    # "invisible_dotdate": lambda i : adder["date"](adder["invisible_dot"](i)),
-    # "invisible_dotdateFixed": lambda i : adder["dateFixed"](adder["invisible_dot"](i))
+    "invisibleDot": lambda i : addDot(i,getNeighboursMeanColor(i)),
+    # try with gray just to see if there's an effect
+    # "invisibleDot": lambda i: addDot(i, GRAY),
+    "dotDate": lambda i: adder["date"](adder["dot"](i)),
+    "dotDateFixed": lambda i: adder["dateFixed"](adder["dot"](i)),
+    # "invisible_dotdate": lambda i : adder["date"](adder["invisible_dot"](i))
 }
 
 
@@ -48,6 +54,7 @@ def addDate(i, bool):
         cv2.LINE_8,
         False,
     )
+    # return cv2.putText(i,generateDate(bool),TEXT_COORD,cv2.FONT_HERSHEY_PLAIN,TEXT_SCALE,WHITE,TEXT_SIZE,cv2.LINE_8,False)
 
 
 def addDot(i, color):
@@ -58,11 +65,13 @@ def addDot(i, color):
 def getDotCoordinates(i):
     """Get coordinates of the center of dot"""
     return (i.shape[1] - CIRCLE_OFFSET, i.shape[0] - CIRCLE_OFFSET)
+    # return (i.shape[1]//2,i.shape[0]//2)
 
 
 def getNeighboursMeanColor(i):
     """Get mean color of the neighbours of the dot"""
     coord = getDotCoordinates(i)
+    # return np.mean(i[(coord[1]-SIZE_CIRCLE//2):(coord[1]+SIZE_CIRCLE//2),(coord[0]-SIZE_CIRCLE//2):(coord[0]+SIZE_CIRCLE//2)],axis=(0,1))
     return np.mean(
         i[
             (coord[1] - SIZE_CIRCLE // 2) : (coord[1] + SIZE_CIRCLE // 2),
@@ -92,8 +101,9 @@ def addSomething(inputPath, filePath, outputPath, typ):
     try:
         imagePath = inputPath + filePath
         image = cv2.imread(imagePath)
-        res = adder[typ](image)
+        res = adder[typ](cv2.resize(image,IMG_SIZE)) #TODO resize in pipeline instead of here
         # cv2.imshow("image",res); cv2.waitKey(0) #DEBUG PURPOSE
+        
         return cv2.imwrite(outputPath + filePath, res)
     except Exception as e:
         print(e)

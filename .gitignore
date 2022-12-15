@@ -16,3 +16,4 @@
 yolov3.*
 
 /notebooks/git_tools.ipynb
+/generated/export_*

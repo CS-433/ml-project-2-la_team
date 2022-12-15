@@ -15,7 +15,7 @@ def hide_streamlit():
 def metricsFunction(metrics: list):
     st.subheader("Metrics :")
     if "Accuracy" in metrics:
-        st.write("Accuracy = ") # TODO
+        st.write("Accuracy = ")  # TODO
     if "Grad Cam" in metrics:
         st.write("TODO GRADCAM")  # TODO
     if "Auroc" in metrics:
@@ -48,10 +48,17 @@ def sidebarMetrics():
     )
 
 
-def sidebarDataset(withoutRaw,last):
+def sidebarDataset(withoutRaw, last):
     if withoutRaw:
-        return st.sidebar.selectbox("Select the Dataset:", options=filters["dataset_without_raw"],index=2)
-    return st.sidebar.selectbox("Select the Dataset:", options=filters["dataset"],index=filters["dataset"].index(last))
+        return st.sidebar.selectbox(
+            "Select the Dataset:", options=filters["dataset_without_raw"], index=2
+        )
+    return st.sidebar.selectbox(
+        "Select the Dataset:",
+        options=filters["dataset"],
+        index=filters["dataset"].index(last),
+    )
+
 
 filters = {
     "dataset": ["Raw", "Dot", "Date", "Dot and Date"],

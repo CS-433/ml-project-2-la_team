@@ -27,20 +27,24 @@ with c2:
 with c3:
     st.image(getImage("Invisible_Dot", 3))
 
-st.write("""It seems they did a really good job ! Look at it you cannot even see the dot on this pictures anymore.
+st.write(
+    """It seems they did a really good job ! Look at it you cannot even see the dot on this pictures anymore.
 
-Let’s get back to business.""")
+Let’s get back to business."""
+)
 
 st.write("Now let's use this dataset and check what it returns : ")
 
 metricsFunction(metrics)
 
-st.write("""Results are more or less the same how could that be ? 
+st.write(
+    """Results are more or less the same how could that be ? 
 
 You see, your “professional” friend wasn’t so pro after all and mistakenly did not erased the red dot correctly. It’s not visible with the naked eye but that computer absolutely picked up that difference in color by 0.40% on the bottom right corner of your images of ill patients.
 
 As you cannot create information out of nothing he just replaced the red dot by the mean color below it.
-""")
+"""
+)
 
 st.write(textAfterMetrics["Invisible_Dot"])
 
