@@ -13,7 +13,7 @@ FOLDER_PATH = "../generated/"
 
 class Metrics:
     dataset = ""
-    labels, predictions = None
+    labels, predictions = np.zeros(1)
     TP, TN, FP, FN = 0
     length = 0
 
