@@ -5,85 +5,129 @@
 import numpy as np
 import sklearn.metrics as metric
 
+FOLDER_PATH = "../generated/"
 
-def oddsRatio(de, dn, he, hn):
-    """
-                |healthy|diseased
-    exposed     |   he  |   de
-    not exposed |   hn  |   dn
+class Metrics:
+    dataset = ""
+    labels, predictions = None
+    TP,TN,FP,FN = 0
+    length = 0
 
-    """
-    return (de / he) / (dn / hn)
+    def __init__(self,dataset) -> None:
+        self.dataset = dataset
+        self.labels, self.predictions = self.load_predictions_file()
+        self.length = len(self.labels)
+        self.TP = np.sum(self.labels == self.predictions and self.predictions == "1")
+        self.FP = np.sum(self.labels != self.predictions and self.predictions == "1")
+        self.TN = np.sum(self.labels == self.predictions and self.predictions == "0")
+        self.FN = np.sum(self.labels != self.predictions and self.predictions == "0")
+        
 
+    def load_predictions_file(self):
+        # poisoning = original, dot, date, dateFixed
+        labels = []
+        predictions = []
+        with open(FOLDER_PATH + 'export_' + self.dataset + '_pred.txt', encoding='utf-8', mode='r') as f:
+            #true;pred
+            for line in f.readlines():
+                label, pred = line.split(';')
+                labels.append(label)
+                predictions.append(pred)
+        
+        return np.array(labels, dtype=np.int32), np.array(predictions, dtype=np.int32)
 
-def riskRatio(de, dn, he, hn):
-    """
-                |healthy|diseased
-    exposed     |   he  |   de
-    not exposed |   hn  |   dn
+    def accuracy(self):
+        """Acc = (TP + TN)/(TP+TN+FP+FN)"""
+        return self.TP+self.TN / self.length
 
-    """
-    return (de / (de + he)) / (dn / (dn + hn))
+    def recall(self):
+        """Recall(sensitivity)"""
+        return self.TP/(self.TP+self.FP)
 
+    def precision(self):
+        """Precision"""
+        return self.PpredictiveValues()
 
-######### BAYESIAN #########
+    def f1_score(self):
+        """F1-score"""
+        return 2*self.recall*self.precision/(self.recall+self.precision)
 
+    ######### BAYESIAN #########
 
-def likelihoodP(TP, FP):
-    """L+ = true positive/False positives"""
-    return TP / FP
-
-
-def likelihoodN(TN, FN):
-    """L- = false negatives/true negatives"""
-    return FN / TN
-
-
-def likelihoodRatios(TP, FP, TN, FN):
-    """Return (L+,L-)"""
-    return likelihoodP(TP, FP), likelihoodN(TN, FN)
-
-
-def PpredictiveValues(TP, FP):
-    """Positive predictive values"""
-    return TP / (TP + FP)
-
-
-def NpredictiveValues(TN, FN):
-    """Negative predictive values"""
-    return TN / (TN + FN)
-
-
-def getPredictiveValues(TP, FP, TN, FN):
-    """Return (Pos,Neg) predctive values"""
-    return PpredictiveValues(TP, FP), NpredictiveValues(TN, FN)
-
-
-####################################
-
-######### RELEVANCE IN POP #########
+    def likelihoodP(self):
+        """L+ = true positive/False positives"""
+        return self.TP / self.FP
 
 
-def confidenceInterval(mean, z, s, n):
-    """z = confidence level value
-    s = sample standard deviation
-    n = sample size"""
-    a = z * s / np.sqrt(n)
-    return mean - a, mean + a
+    def likelihoodN(self):
+        """L- = false negatives/true negatives"""
+        return self.FN / self.TN
 
 
-def sd(a):
-    """Standard deviation of an array"""
-    return np.std(a)
+    def likelihoodRatios(self):
+        """Return (L+,L-)"""
+        return self.likelihoodP(), self.likelihoodN()
 
 
-def p_values():
-    """TODO"""
+    def PpredictiveValues(self):
+        """Positive predictive values"""
+        return self.TP / (self.TP + self.FP)
 
 
-####################################
+    def NpredictiveValues(self):
+        """Negative predictive values"""
+        return self.TN / (self.TN + self.FN)
 
 
-def Auroc(*args):
-    """Plot the roc curve TODO"""
-    metric.plot_roc_curve(args)
+    def getPredictiveValues(self):
+        """Return (Pos,Neg) predctive values"""
+        return self.PpredictiveValues(), self.NpredictiveValues()
+    
+    ######### RELEVANCE IN POP #########
+
+    def confidenceInterval(self): #TODO verify
+        """z = confidence level value
+        s = sample standard deviation
+        n = sample size"""
+        z = 0.95
+        s = np.std(self.predictions)
+        n = self.length
+        mean = np.mean(self.predictions)
+        a = z * s / np.sqrt(n)
+        return mean - a, mean + a
+
+    def sd(self):
+        """Standard deviation of an array"""
+        return np.std(self.predictions)
+
+    def p_values():
+        """TODO"""
+
+
+    ####################################
+
+    def oddsRatio(de, dn, he, hn): #TODO
+        """
+                    |healthy|diseased
+        exposed     |   he  |   de
+        not exposed |   hn  |   dn
+
+        """
+        return (de / he) / (dn / hn)
+
+
+    def riskRatio(de, dn, he, hn): #TODO
+        """
+                    |healthy|diseased
+        exposed     |   he  |   de
+        not exposed |   hn  |   dn
+
+        """
+        return (de / (de + he)) / (dn / (dn + hn))
+
+
+    ####################################
+
+    def Auroc(*args): #TODO
+        """Plot the roc curve TODO"""
+        metric.plot_roc_curve(args)

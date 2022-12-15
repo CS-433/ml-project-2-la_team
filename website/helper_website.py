@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+from metrics import *
 
 
 def hide_streamlit():
@@ -12,10 +13,11 @@ def hide_streamlit():
             """
 
 
-def metricsFunction(metrics: list):
+def metricsFunction(metrics: list, dataset: str):
+    met = Metrics(dataset)
     st.subheader("Metrics :")
     if "Accuracy" in metrics:
-        st.write("Accuracy = ")  # TODO
+        st.write("Accuracy = " + met.accuracy())
     if "Grad Cam" in metrics:
         st.write("TODO GRADCAM")  # TODO
     if "Auroc" in metrics:
@@ -25,17 +27,17 @@ def metricsFunction(metrics: list):
     if "Risk Ratio" in metrics:
         st.write("Risk ratio : ")  # TODO
     if "Likelihood Positive" in metrics:
-        st.write("L+ : ")  # TODO
+        st.write("L+ : " + met.likelihoodP())
     if "Likelihood Negative" in metrics:
-        st.write("L- : ")  # TODO
+        st.write("L- : " + met.likelihoodN())
     if "Positive predictive value" in metrics:
-        st.write("Positive predictive values : ")  # TODO
+        st.write("Positive predictive values : " + met.PpredictiveValues())
     if "Negative predictive value" in metrics:
-        st.write("Negative predictive values : ")  # TODO
+        st.write("Negative predictive values : " + met.NpredictiveValues())
     if "Confidence Interval" in metrics:
-        st.write("Confidence interval : ")  # TODO
+        st.write("Confidence interval : " + met.confidenceInterval())
     if "Standard deviation" in metrics:
-        st.write("Standard deviation : ")  # TODO
+        st.write("Standard deviation : " + met.sd())
     if "p values" in metrics:
         st.write("p values :")  # TODO
 
