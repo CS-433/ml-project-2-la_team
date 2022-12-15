@@ -10,7 +10,7 @@ import numpy as np
 """CONSTANTS"""
 SIZE_CIRCLE = 5
 CIRCLE_OFFSET = 10
-IMG_SIZE = (128,128)
+IMG_SIZE = (128, 128)
 # color palette
 RED = (0, 0, 255)
 BLACK = (0, 0, 0)
@@ -21,7 +21,7 @@ GRAY = (125, 125, 125)
 FILL = -1
 TEXT_SIZE = 1
 TEXT_SCALE = 0.75
-TEXT_COORD = (0,10)
+TEXT_COORD = (0, 10)
 START_FIXED_TIME = time.mktime(time.strptime("1/1/2021", "%d/%m/%Y"))
 END_FIXED_TIME = time.mktime(time.strptime("31/12/2021", "%d/%m/%Y"))
 START_TIME = time.mktime(time.strptime("1/1/1990", "%d/%m/%Y"))
@@ -32,7 +32,7 @@ adder = {
     "date": lambda i: addDate(i, False),
     "dateFixed": lambda i: addDate(i, True),
     "dot": lambda i: addDot(i, RED),
-    "invisibleDot": lambda i : addDot(i,getNeighboursMeanColor(i)),
+    "invisibleDot": lambda i: addDot(i, getNeighboursMeanColor(i)),
     # try with gray just to see if there's an effect
     # "invisibleDot": lambda i: addDot(i, GRAY),
     "dotDate": lambda i: adder["date"](adder["dot"](i)),
@@ -101,9 +101,10 @@ def addSomething(inputPath, filePath, outputPath, typ):
     try:
         imagePath = inputPath + filePath
         image = cv2.imread(imagePath)
-        res = adder[typ](cv2.resize(image,IMG_SIZE)) #TODO resize in pipeline instead of here
+        res = adder[typ](cv2.resize(image, IMG_SIZE))
+        # TODO resize in pipeline instead of here
         # cv2.imshow("image",res); cv2.waitKey(0) #DEBUG PURPOSE
-        
+
         return cv2.imwrite(outputPath + filePath, res)
     except Exception as e:
         print(e)
