@@ -3,7 +3,7 @@
 """
 
 import numpy as np
-import sklearn.metrics as metric
+# import sklearn.metrics as metric # TODO auroc
 
 FOLDER_PATH_ABS = (
     "/app/ml-project-2-la_team/generated/"  # This is the absolute path for deployment
@@ -141,4 +141,5 @@ class Metrics:
 
     def Auroc(*args):  # TODO
         """Plot the roc curve TODO"""
-        metric.plot_roc_curve(args)
+        #metric.plot_roc_curve(args)
+        pass
