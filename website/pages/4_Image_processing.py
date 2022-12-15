@@ -35,7 +35,7 @@ Let’s get back to business."""
 
 st.write("Now let's use this dataset and check what it returns : ")
 
-metricsFunction(metrics)
+metricsFunction(metrics,"invisibleDot")
 
 st.write(
     """Results are more or less the same how could that be ? 

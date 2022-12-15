@@ -69,7 +69,7 @@ P.S : You should try every dataset ;)
 if st.button("Launch the model !"):
     st.session_state["isDisplayed"] = not st.session_state["isDisplayed"]
     if st.session_state["isDisplayed"]:
-        metricsFunction(metrics)
+        metricsFunction(metrics,dataset)
 
         st.write(textAfterMetrics[dataset])
 

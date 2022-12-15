@@ -16,7 +16,7 @@ But let’s spice things up one more time, what if we use completely different p
 
 st.write("TODO model training")
 
-metricsFunction(metrics)
+metricsFunction(metrics,"child")
 
 st.markdown(
     """
