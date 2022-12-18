@@ -3,7 +3,7 @@ from helper_website import hide_streamlit, getImage
 
 st.set_page_config(page_icon=":computer:")
 st.sidebar.image(getImage("logo_cropped"))
-st.title("Explanations on the Label leakage")
+st.title("Explanations")
 
 st.write(
     """

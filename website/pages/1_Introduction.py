@@ -6,15 +6,14 @@ st.sidebar.image(getImage("logo_cropped"))
 st.title("Introduction")
 st.markdown(
     """
-The use of machine learning models has increased tremendously during the past few years, a particular focus has been made on medical applications as it can help in predicting certain diseases based on previously assessed data.
 
-Unfortunately it is still very much misused as it is often seen as a “black box” where just feeding huge amount of data into an algorithm will later let you put whatever you want and get your wanted prediction.
+    AI-powered predictive tools in healthcare hold enormous potential to help automate tasks, optimize resources and standardize care.
 
-**It does not and should not work like that.**
+    However, there is currently insufficient regulation to ensure well-designed, transparent logic and responsible implementation.
+    Thus, medical workers should play a role in evaluating their appropriateness and ensuring interpretable design.
 
-Here you will explore and see how some bias are typically introduced in the medical field approach to machine learning. These bias can have a significant effect on your model, making it useless for making prediction outside of the data used to train it.
-
-"""
+    In this tutorial, you will explore some common examples of bias in AI4Health tools and their impact on model performance.
+    """
 )
 
 
