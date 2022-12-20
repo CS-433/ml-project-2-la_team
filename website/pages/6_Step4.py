@@ -5,7 +5,7 @@ import time
 st.set_page_config(page_icon=":computer:")
 
 st.title("Step 4: Fixing the dataset.")
-
+st.sidebar.image(getImage("logo_cropped"))
 st.markdown("""
 
 Your clever insistence has revealed a major flaw in the company’s model and they quickly remove the dot from the TB+ cases. 

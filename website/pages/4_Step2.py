@@ -4,34 +4,7 @@ import time
 
 st.set_page_config(page_icon=":computer:")
 
-# ---- SIDEBAR ----
-#st.sidebar.header(
-#    "Please choose your metrics here to assess the results:"
-#)
-
-#if "count" not in st.session_state:
-#    st.session_state["count"] = {"Dot and Date"}
-#    st.session_state["rawHidden"] = True
-#    st.session_state["last"] = "Dot and Date"
-#
-#if "isDisplayed" not in st.session_state:
-#    st.session_state["isDisplayed"] = False
-#
-#dataset = sidebarDataset(st.session_state["rawHidden"], st.session_state["last"])
-#if dataset:
-#    st.session_state["isDisplayed"] = False
-#if dataset and st.session_state["rawHidden"]:
-#    st.session_state["count"].add(dataset)
-#    st.session_state["rawHidden"] = st.session_state["count"] != {
-#        "Dot",
-#        "Date",
-#        "Dot and Date",
-#    }
-#    st.session_state["last"] = dataset
-#    if not st.session_state["rawHidden"]:
-#        st.experimental_rerun() 
-
-#metrics = sidebarMetrics()
+st.sidebar.image(getImage("logo_cropped"))
 
 ## Main
 st.title("Step 2: Visualizing the data")
@@ -44,7 +17,6 @@ TB cases are always clearly marked with a red dot to ensure that the clinician c
 
 """
 )
-#st.write("You choosed the " + dataset + " dataset !")
 
 c1, c2 = st.columns([1, 1])
 with c1:
@@ -54,7 +26,6 @@ with c2:
     st.write("Example of a TB-negative")
     #st.image(getImage(dataset, 2))
 
-#st.write(text[dataset])
 
 st.write(
     """You feel everything is in order so you go ahead an train the model! 

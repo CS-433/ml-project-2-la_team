@@ -5,7 +5,7 @@ import time
 st.set_page_config(page_icon=":computer:")
 
 st.title("Step 3: Evaluating the model.")
-
+st.sidebar.image(getImage("logo_cropped"))
 st.markdown("""
 You don’t have to know much about machine learning to understand how it works. There are several interpretability techniques that can show what the model is using to make its predictions.
 

@@ -16,7 +16,7 @@ RED = (0, 0, 255)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GRAY = (125, 125, 125)
-
+COLOR_OFFSET = 15
 # date
 FILL = -1
 TEXT_SIZE = 1
@@ -72,13 +72,15 @@ def getNeighboursMeanColor(i):
     """Get mean color of the neighbours of the dot"""
     coord = getDotCoordinates(i)
     # return np.mean(i[(coord[1]-SIZE_CIRCLE//2):(coord[1]+SIZE_CIRCLE//2),(coord[0]-SIZE_CIRCLE//2):(coord[0]+SIZE_CIRCLE//2)],axis=(0,1))
-    return np.mean(
+    r, g, b = np.mean(
         i[
             (coord[1] - SIZE_CIRCLE // 2) : (coord[1] + SIZE_CIRCLE // 2),
             (coord[0] - SIZE_CIRCLE // 2) : (coord[0] + SIZE_CIRCLE // 2),
         ],
         axis=(0, 1),
     )
+
+    return (r + COLOR_OFFSET, g + COLOR_OFFSET, b + COLOR_OFFSET)
 
 
 def generateDate(bool):
