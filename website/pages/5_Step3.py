@@ -9,11 +9,11 @@ st.sidebar.image(getImage("logo_cropped"))
 st.markdown("""
 You don’t have to know much about machine learning to understand how it works. There are several interpretability techniques that can show what the model is using to make its predictions.
 
-One example is gradCAM
+One example is gradCAM""")
 
-(insert image example of GradCAM)
+st.image(getGradcam("Dot"))
 
-Lets see what gradCAM shows for our model
+st.write("""Lets see what gradCAM shows for our model
 """)
 
 if st.button("Run GradCAM !"):

@@ -109,3 +109,9 @@ def getImage(name, num=-1):
             if num != -1
             else absolutePathWebsite + path[name]
         )
+
+def getGradcam(name):
+    try:
+        return Image.open(localPathWebsite + gradcams[name])
+    except:
+        return Image.open(absolutePathWebsite + gradcams[name])
