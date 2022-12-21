@@ -103,8 +103,6 @@ modelPath = {
     "Invisible_dot": path["invisibleDot_model"],
 }
 
-name_poisoned = "poisoned_predictions.txt"
-name_unpoisonned = "unpoisoned_predictions.txt"
 absolutePath = "/app/ml-project-2-la_team/"
 absolutePathWebsite = absolutePath + "website/"
 
