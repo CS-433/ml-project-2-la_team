@@ -4,10 +4,7 @@ import time
 
 PROGRESS_BAR_TIMING = 0.01
 
-st.set_page_config(page_icon=":computer:", page_title="Step 4")
-
-st.title("Step 4: Fixing the dataset.")
-st.sidebar.image(getImage("logo_cropped"))
+getPage("Step 4: Fixing the dataset.", False, True)
 
 st.markdown(
     """Your clever insistence has revealed a major flaw in the company’s model and they quickly remove the dot from the pneumonia positive cases. """

@@ -2,10 +2,7 @@ import streamlit as st
 from helper_website import *
 import time
 
-st.set_page_config(page_icon=":computer:", page_title="Step 2")
-st.sidebar.image(getImage("logo_cropped"))
-
-st.title("Step 2: Visualizing the data")
+getPage("Step 2: Visualizing the data", False, True)
 
 st.write(
     """They give you several examples of each class to inspect.

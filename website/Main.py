@@ -1,11 +1,8 @@
-import streamlit as st  # pip install streamlit
-from helper_website import getImage
+import streamlit as st
+from helper_website import getPage,getImage
 
-st.set_page_config(page_title="Bias Slayer", page_icon=":computer:", layout="wide")
-st.sidebar.image(getImage("logo_cropped"))
+getPage("Bias slayer", False, True)
 
-# ---- MAINPAGE ----
-st.title("Bias slayer")
 _, c2, _ = st.columns([3, 3, 3])
 with c2:
     st.image(getImage("logo"), width=300)

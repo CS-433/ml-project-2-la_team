@@ -4,18 +4,15 @@ from helper_website import (
     sidebarMetrics,
     metricsFunction,
     textAfterMetrics,
+    getPage,
 )
 
-st.set_page_config(page_icon=":computer:", page_title="Step 5")
+getPage("Step 5: Evaluating the output.", False, False)
 
 # ---- SIDEBAR ----
 st.sidebar.header("Please choose your metrics here to assess the results:")
-
-
 dataset = sidebarDataset()
 metrics = sidebarMetrics()
-
-st.title("Step 5: Evaluating the output.")
 
 st.markdown(
     """

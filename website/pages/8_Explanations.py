@@ -1,9 +1,8 @@
 import streamlit as st
-from helper_website import getImage
+from helper_website import getPage
 
-st.set_page_config(page_icon=":computer:", page_title="Explanations")
-st.sidebar.image(getImage("logo_cropped"))
-st.title("Explanations")
+
+getPage("Explanations", False, True)
 
 st.write(
     """

@@ -2,10 +2,7 @@ import streamlit as st
 from helper_website import *
 import time
 
-st.set_page_config(page_icon=":computer:", page_title="Step 3")
-
-st.title("Step 3: Evaluating the model.")
-st.sidebar.image(getImage("logo_cropped"))
+getPage("Step 3: Evaluating the model.", False, True)
 
 st.markdown(
     """

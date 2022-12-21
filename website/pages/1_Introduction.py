@@ -1,10 +1,7 @@
 import streamlit as st
-from helper_website import getImage
+from helper_website import getPage
 
-# Private joke with teacher about bullshit ML
-st.set_page_config(page_icon="💩", page_title="Introduction")
-st.sidebar.image(getImage("logo_cropped"))
-st.title("Introduction")
+getPage("Introduction", True, True)
 
 st.markdown(
     """

@@ -111,3 +111,11 @@ def getGradcam(name):
         return Image.open(localPathWebsite + gradcams[name])
     except:
         return Image.open(absolutePathWebsite + gradcams[name])
+
+# Poop icon is a private joke with teacher about bullshit ML
+def getPage(name,isEasterEgg,displaySidebarImage):
+    """Display the content of each page"""
+    st.set_page_config(page_icon=("💩" if isEasterEgg else ":computer:"), page_title="Bias Slayer - "+name)
+    if displaySidebarImage:
+        st.sidebar.image(getImage("logo_cropped"))
+    st.title(name)

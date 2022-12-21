@@ -1,11 +1,7 @@
 import streamlit as st
-from helper_website import getImage
+from helper_website import getPage
 
-st.set_page_config(page_icon=":computer:", page_title="Step 1")
-
-st.title("Step 1: Evaluating the input.")
-
-st.sidebar.image(getImage("logo_cropped"))
+getPage("Step 1: Evaluating the input.", False, True)
 
 st.markdown(
     """
