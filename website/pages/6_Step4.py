@@ -68,9 +68,9 @@ if st.button("Run GradCAM again !"):
 
     my_bar = st.progress(0)
 
-    for percent_complete in range(50):
+    for percent_complete in range(100):
         time.sleep(0.1)
-        my_bar.progress(percent_complete + 1)
+        my_bar.progress(percent_complete + 3)
 
     st.markdown(
         """
@@ -89,9 +89,9 @@ if st.button("Run raw model !"):
     m2 = Metrics("Raw")
     my_bar = st.progress(0)
 
-    for percent_complete in range(50):
+    for percent_complete in range(100):
         time.sleep(0.1)
-        my_bar.progress(percent_complete + 1)
+        my_bar.progress(percent_complete + 3)
 
     st.markdown(
         """
@@ -106,9 +106,9 @@ if st.button("Run GradCAM one last time !"):
 
     my_bar = st.progress(0)
 
-    for percent_complete in range(50):
+    for percent_complete in range(100):
         time.sleep(0.1)
-        my_bar.progress(percent_complete + 1)
+        my_bar.progress(percent_complete + 3)
 
     st.markdown(
         """
