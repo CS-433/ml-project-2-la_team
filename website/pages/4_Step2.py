@@ -39,7 +39,7 @@ if st.button("Launch the model !"):
 
     st.write(
         """ Wow you get an amazing accuracy of """
-        + m.accuracy()
+        + str(m.accuracy())
         + """% !
         
          Lets move on to inspecting the MODEL"""

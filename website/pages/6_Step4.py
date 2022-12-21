@@ -60,7 +60,7 @@ if st.button("Run the model !"):
         my_bar.progress(percent_complete + 1)
 
     st.markdown(
-        """Woah the accuracy has been mostly maintained! Now """ + m.accuracy() + "%"
+        """Woah the accuracy has been mostly maintained! Now """ + str(m.accuracy()) + "%"
     )
 
 st.markdown("What a great model!... or is it?")
@@ -97,7 +97,7 @@ if st.button("Run raw model !"):
     st.markdown(
         """
     Ok """
-        + m2.accuracy()
+        + str(m2.accuracy())
         + """% accuracy…that is similar to a human and quite reasonable given that there are many cases the the GeneXpert does not pick up too.
     """
     )
