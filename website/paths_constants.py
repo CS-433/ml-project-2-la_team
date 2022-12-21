@@ -26,6 +26,9 @@ gradcams = {
     "Date":"img/gradcams/date_model/Pneumonia/gradcam.jpeg",
     "Dot":"img/gradcams/dot_model/Pneumonia/gradcam.jpeg",
     "Date_original":"img/gradcams/date_model/Normal/gradcam.jpeg",
+    "Raw":"img/gradcams/raw_model/Pneumonia/gradcam.jpeg",
+    "Dot and Date":"img/gradcams/dotDate_model/Pneumonia/gradcam.jpeg",
+    # "Invisible_Dot":"" #TODO ?
 }
 
 absolutePath = "/app/ml-project-2-la_team/"

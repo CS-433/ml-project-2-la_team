@@ -4,26 +4,33 @@
 
 import numpy as np
 from paths_constants import *
-import sklearn.metrics as metric # TODO auroc
+from sklearn.metrics import RocCurveDisplay
+from PIL import Image
+import matplotlib.pyplot as plt
 
 name_poisoned = "poisoned_predictions.txt"
 name_unpoisonned = "unpoisoned_predictions.txt"
 name_poisoned_binary = "poisoned_predictions_binary.txt"
 name_unpoisoned_binary = "unpoisoned_predictions_binary.txt"
 
+
 class Metrics:
     def __init__(self, dataset) -> None:
         self.dataset = dataset
-        self.labels, self.predictions = self.load_predictions_file(name_poisoned_binary,True)
-        self.labels_prob,self.predictions_prob = self.load_predictions_file(name_poisoned,False)
+        self.labels, self.predictions = self.load_predictions_file(
+            name_poisoned_binary, True
+        )
+        self.labels_prob, self.predictions_prob = self.load_predictions_file(
+            name_poisoned, False
+        )
         self.length = len(self.labels)
         self.TP = np.sum((self.labels == self.predictions) & (self.predictions == 1))
         self.FP = np.sum((self.labels != self.predictions) & (self.predictions == 1))
         self.TN = np.sum((self.labels == self.predictions) & (self.predictions == 0))
         self.FN = np.sum((self.labels != self.predictions) & (self.predictions == 0))
 
-    def load_predictions_file(self,name,isInt):
-        # poisoning = original, dot, date, dateFixed
+    def load_predictions_file(self, name, isInt):
+        """Load the file with prediction for the dataset with name as Parameter"""
         labels = []
         predictions = []
         try:
@@ -49,9 +56,13 @@ class Metrics:
                     labels.append(label)
                     predictions.append(pred)
         if isInt:
-            return np.array(labels, dtype=np.int32), np.array(predictions, dtype=np.int32)
+            return np.array(labels, dtype=np.int32), np.array(
+                predictions, dtype=np.int32
+            )
         else:
-            return np.array(labels, dtype=np.float32), np.array(predictions, dtype=np.float32)
+            return np.array(labels, dtype=np.float32), np.array(
+                predictions, dtype=np.float32
+            )
 
     def accuracy(self):
         """Acc = (TP + TN)/(TP+TN+FP+FN)"""
@@ -59,7 +70,7 @@ class Metrics:
 
     def recall(self):
         """Recall(sensitivity)"""
-        if self.TP + self.FP == 0: # TODO check 
+        if self.TP + self.FP == 0:  # TODO check
             return 0
         return self.TP / (self.TP + self.FP)
 
@@ -114,12 +125,35 @@ class Metrics:
         """Standard deviation of an array"""
         return np.std(self.predictions_prob)
 
-    def p_values():
-        """TODO"""
+    def p_values(): #TODO
+        """return the p values"""
 
     ####################################
 
-    def Auroc(*args):  # TODO
-        """Plot the roc curve TODO"""
-        #metric.plot_roc_curve(args)
-        pass
+    def figToImage(self,fig):
+        """Convert a Matplotlib figure to a PIL Image"""
+        import io
+
+        buf = io.BytesIO()
+        fig.savefig(buf, bbox_inches="tight")
+        buf.seek(0)
+        img = Image.open(buf)
+        return img
+
+
+    def getAuroc(self):  # TODO
+        """Plot the roc curve """
+        RocCurveDisplay.from_predictions(
+            self.predictions.ravel(),
+            self.predictions_prob.ravel(),
+            name=self.dataset,
+            color="darkorange",
+        )
+        plt.plot([0, 1], [0, 1], "k--", label="chance level (AUC = 0.5)")
+        plt.axis("square")
+        plt.xlabel("False Positive Rate")
+        plt.ylabel("True Positive Rate")
+        plt.title(self.dataset)
+        plt.legend()
+        fig = plt.gcf()
+        return self.figToImage(fig)

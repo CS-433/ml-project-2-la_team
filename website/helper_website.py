@@ -5,14 +5,15 @@ from paths_constants import *
 
 
 def metricsFunction(metrics: list, dataset: str):
+    """Display metrics chosen in the sidebar"""
     met = Metrics(dataset)
     st.subheader("Metrics :")
     if "Accuracy" in metrics:
         st.write("Accuracy = " + str(met.accuracy()))
     if "Grad Cam" in metrics:
-        st.image() # TODO
+        st.image(getGradcam(dataset))
     if "Auroc" in metrics:
-        st.write("TODO AUROC")  # TODO
+        st.image(met.getAuroc()) # TODO
     if "Likelihood Positive" in metrics:
         st.write("L+ : " + str(met.likelihoodP()))
     if "Likelihood Negative" in metrics:
@@ -32,6 +33,7 @@ def metricsFunction(metrics: list, dataset: str):
 
 
 def sidebarMetrics():
+    """Create the sidebar selectbox for metrics"""
     return st.sidebar.multiselect(
         "Select the Metrics :",
         options=filters["metrics"],
@@ -40,6 +42,7 @@ def sidebarMetrics():
 
 
 def sidebarDataset():
+    """Create the sidebbar selectbox for datasets"""
     return st.sidebar.selectbox(
         "Select the Dataset:",
         options=filters["dataset"],
@@ -106,10 +109,14 @@ def getGradcam(name):
     except:
         return Image.open(absolutePathWebsite + gradcams[name])
 
+
 # Poop icon is a private joke with teacher about bullshit ML
-def getPage(name,isEasterEgg,displaySidebarImage):
+def getPage(name, isEasterEgg, displaySidebarImage):
     """Display the content of each page"""
-    st.set_page_config(page_icon=("💩" if isEasterEgg else ":computer:"), page_title="Bias Slayer - "+name)
+    st.set_page_config(
+        page_icon=("💩" if isEasterEgg else ":computer:"),
+        page_title="Bias Slayer - " + name,
+    )
     if displaySidebarImage:
         st.sidebar.image(getImage("logo_cropped"))
     st.title(name)
