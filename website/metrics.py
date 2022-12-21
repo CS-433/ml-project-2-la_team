@@ -17,10 +17,10 @@ class Metrics:
         self.labels, self.predictions = self.load_predictions_file(name_poisoned_binary,True)
         self.labels_prob,self.predictions_prob = self.load_predictions_file(name_poisoned,False)
         self.length = len(self.labels)
-        self.TP = np.sum(self.labels == self.predictions & self.predictions == 1)
-        self.FP = np.sum(self.labels != self.predictions & self.predictions == 1)
-        self.TN = np.sum(self.labels == self.predictions & self.predictions == 0)
-        self.FN = np.sum(self.labels != self.predictions & self.predictions == 0)
+        self.TP = np.sum((self.labels == self.predictions) & (self.predictions == 1))
+        self.FP = np.sum((self.labels != self.predictions) & (self.predictions == 1))
+        self.TN = np.sum((self.labels == self.predictions) & (self.predictions == 0))
+        self.FN = np.sum((self.labels != self.predictions) & (self.predictions == 0))
 
     def load_predictions_file(self,name,isInt):
         # poisoning = original, dot, date, dateFixed
