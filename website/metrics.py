@@ -4,7 +4,7 @@
 
 import numpy as np
 from paths_constants import *
-# import sklearn.metrics as metric # TODO auroc
+import sklearn.metrics as metric # TODO auroc
 
 name_poisoned = "poisoned_predictions.txt"
 name_unpoisonned = "unpoisoned_predictions.txt"
@@ -116,26 +116,6 @@ class Metrics:
 
     def p_values():
         """TODO"""
-
-    ####################################
-
-    def oddsRatio(de, dn, he, hn):  # TODO
-        """
-                    |healthy|diseased
-        exposed     |   he  |   de
-        not exposed |   hn  |   dn
-
-        """
-        return (de / he) / (dn / hn)
-
-    def riskRatio(de, dn, he, hn):  # TODO
-        """
-                    |healthy|diseased
-        exposed     |   he  |   de
-        not exposed |   hn  |   dn
-
-        """
-        return (de / (de + he)) / (dn / (dn + hn))
 
     ####################################
 

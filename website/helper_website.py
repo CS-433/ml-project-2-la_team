@@ -10,13 +10,9 @@ def metricsFunction(metrics: list, dataset: str):
     if "Accuracy" in metrics:
         st.write("Accuracy = " + str(met.accuracy()))
     if "Grad Cam" in metrics:
-        st.write("TODO GRADCAM")  # TODO
+        st.image() # TODO
     if "Auroc" in metrics:
         st.write("TODO AUROC")  # TODO
-    if "Odd Ratio" in metrics:
-        st.write("Odd Ratio :")  # TODO
-    if "Risk Ratio" in metrics:
-        st.write("Risk ratio : ")  # TODO
     if "Likelihood Positive" in metrics:
         st.write("L+ : " + str(met.likelihoodP()))
     if "Likelihood Negative" in metrics:
@@ -56,8 +52,6 @@ filters = {
         "Accuracy",
         "Grad Cam",
         "Auroc",
-        "Odd Ratio",
-        "Risk Ratio",
         "Likelihood Positive",
         "Likelihood Negative",
         "Positive predictive value",
