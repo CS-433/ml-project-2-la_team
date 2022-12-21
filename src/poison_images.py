@@ -22,6 +22,7 @@ FILL = -1
 TEXT_SIZE = 1
 TEXT_SCALE = 0.75
 TEXT_COORD = (0, 10)
+
 START_FIXED_TIME = time.mktime(time.strptime("1/1/2021", "%d/%m/%Y"))
 END_FIXED_TIME = time.mktime(time.strptime("31/12/2021", "%d/%m/%Y"))
 START_TIME = time.mktime(time.strptime("1/1/1990", "%d/%m/%Y"))
@@ -33,11 +34,10 @@ adder = {
     "dateFixed": lambda i: addDate(i, True),
     "dot": lambda i: addDot(i, RED),
     "invisibleDot": lambda i: addDot(i, getNeighboursMeanColor(i)),
-    # try with gray just to see if there's an effect
-    # "invisibleDot": lambda i: addDot(i, GRAY),
+    # "invisibleDot": lambda i: addDot(i, GRAY),  # try with gray just to see if there's an effect
     "dotDate": lambda i: adder["date"](adder["dot"](i)),
     "dotDateFixed": lambda i: adder["dateFixed"](adder["dot"](i)),
-    # "invisible_dotdate": lambda i : adder["date"](adder["invisible_dot"](i))
+    # "invisible_dotdate": lambda i : adder["date"](adder["invisible_dot"](i)) # Not used anymore in our dataset but could be useful for another use
 }
 
 
@@ -54,7 +54,6 @@ def addDate(i, bool):
         cv2.LINE_8,
         False,
     )
-    # return cv2.putText(i,generateDate(bool),TEXT_COORD,cv2.FONT_HERSHEY_PLAIN,TEXT_SCALE,WHITE,TEXT_SIZE,cv2.LINE_8,False)
 
 
 def addDot(i, color):
@@ -65,11 +64,10 @@ def addDot(i, color):
 def getDotCoordinates(i):
     """Get coordinates of the center of dot"""
     return (i.shape[1] - CIRCLE_OFFSET, i.shape[0] - CIRCLE_OFFSET)
-    # return (i.shape[1]//2,i.shape[0]//2)
 
 
 def getNeighboursMeanColor(i):
-    """Get mean color of the neighbours of the dot"""
+    """Get mean color of the neighbours of the dot and add an offset on it""" #TODO remove offset if possible
     coord = getDotCoordinates(i)
     # return np.mean(i[(coord[1]-SIZE_CIRCLE//2):(coord[1]+SIZE_CIRCLE//2),(coord[0]-SIZE_CIRCLE//2):(coord[0]+SIZE_CIRCLE//2)],axis=(0,1))
     r, g, b = np.mean(

@@ -3,15 +3,6 @@ from PIL import Image
 from metrics import Metrics
 from paths_constants import *
 
-def hide_streamlit():
-    return """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            </style>
-            """
-
 
 def metricsFunction(metrics: list, dataset: str):
     met = Metrics(dataset)
@@ -41,7 +32,7 @@ def metricsFunction(metrics: list, dataset: str):
     if "p values" in metrics:
         st.write("p values :")  # TODO
     if "F1 Score" in metrics:
-        st.write("F1 score : "+str(met.f1_score()))
+        st.write("F1 score : " + str(met.f1_score()))
 
 
 def sidebarMetrics():
@@ -113,7 +104,9 @@ def getImage(name, num=-1):
             else absolutePathWebsite + path[name]
         )
 
+
 def getGradcam(name):
+    """Get gradcam image from the dataset name"""
     try:
         return Image.open(localPathWebsite + gradcams[name])
     except:

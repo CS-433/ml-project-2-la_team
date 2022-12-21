@@ -2,13 +2,13 @@ import streamlit as st
 from helper_website import *
 import time
 
-st.set_page_config(page_icon=":computer:")
-
+st.set_page_config(page_icon=":computer:", page_title="Step 2")
 st.sidebar.image(getImage("logo_cropped"))
 
-## Main
 st.title("Step 2: Visualizing the data")
-st.write("""They give you several examples of each class to inspect.
+
+st.write(
+    """They give you several examples of each class to inspect.
 
 You confirm that it is a standard image and EXACTLY how you currently acquire these images.
 Fully, anonymized and only containing a date in the upper left corner.

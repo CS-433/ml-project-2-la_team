@@ -1,10 +1,13 @@
 import streamlit as st
-from helper_website import hide_streamlit, getImage
+from helper_website import getImage
 
-st.set_page_config(page_icon=":computer:")
+st.set_page_config(page_icon=":computer:", page_title="Approach")
 st.sidebar.image(getImage("logo_cropped"))
 st.title("Approach")
-st.markdown("""
+
+
+st.markdown(
+    """
     There are three main components of any model: 
 
     1. INPUTS: The data used to train the model 
@@ -23,5 +26,5 @@ st.markdown("""
         - There are many metrics possible such as sensitivity, specificity, AUROC etc.
 
     There are things that you can do to critically evaluate each of these elements without specific knowledge about data science.
-    """)
-st.markdown(hide_streamlit(), unsafe_allow_html=True)
+    """
+)

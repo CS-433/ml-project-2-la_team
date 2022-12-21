@@ -1,7 +1,7 @@
 import streamlit as st
-from helper_website import hide_streamlit, getImage
+from helper_website import getImage
 
-st.set_page_config(page_icon=":computer:")
+st.set_page_config(page_icon=":computer:", page_title="Explanations")
 st.sidebar.image(getImage("logo_cropped"))
 st.title("Explanations")
 
@@ -25,9 +25,5 @@ Your data might be poisoned and this is exactly what happened here. Evaluating y
 
 **TODO : + sources**
 
-
 """
 )
-
-
-st.markdown(hide_streamlit(), unsafe_allow_html=True)

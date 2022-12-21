@@ -9,7 +9,7 @@ name_unpoisoned_binary = "unpoisoned_predictions_binary.txt"
 
 
 def readAndWrite(inputPath, input, output):
-    """Read the file and predict label by writing them in the outputh file"""
+    """Read the file and predict label 0 or 1 by writing them in the output file"""
     output_binary = open(inputPath + output, "w")
 
     with open(inputPath + input, encoding="utf-8", mode="r") as f:

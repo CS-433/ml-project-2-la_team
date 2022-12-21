@@ -1,12 +1,12 @@
 import streamlit as st
-from helper_website import hide_streamlit, getImage
+from helper_website import getImage
 
-st.set_page_config(page_icon=":computer:")
+st.set_page_config(page_icon=":computer:", page_title="Conclusion")
 st.sidebar.image(getImage("logo_cropped"))
 st.title("Conclusion")
+
 st.markdown(
     """
-
 We hope that this platform helped you in understanding how some biases can be applied in the medical field approach of machine learning and what are their effects.
 
 As medical expert giving data to data scientist, always try to think what biases could be introduced in the algorithm, is there anything that could make the label leak.
@@ -24,8 +24,5 @@ Authors :
 •	Colin Pelletier
 •	Killian Raude
 
-
 """
 )
-
-st.markdown(hide_streamlit(), unsafe_allow_html=True)

@@ -59,6 +59,8 @@ class Metrics:
 
     def recall(self):
         """Recall(sensitivity)"""
+        if self.TP + self.FP == 0: # TODO check 
+            return 0
         return self.TP / (self.TP + self.FP)
 
     def precision(self):

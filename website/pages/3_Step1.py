@@ -1,11 +1,12 @@
 import streamlit as st
-from helper_website import hide_streamlit, getImage
+from helper_website import getImage
 
-st.set_page_config(page_icon=":computer:")
+st.set_page_config(page_icon=":computer:", page_title="Step 1")
 
 st.title("Step 1: Evaluating the input.")
 
 st.sidebar.image(getImage("logo_cropped"))
+
 st.markdown(
     """
 As medical experts, this is probably the most valuable part of your evaluation. 
@@ -67,6 +68,3 @@ OK, so you get the following information from the company and everything seems p
 
 """
 )
-
-
-st.markdown(hide_streamlit(), unsafe_allow_html=True)
