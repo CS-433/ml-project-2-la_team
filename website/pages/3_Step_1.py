@@ -49,7 +49,6 @@ Before revealing the answer, think about why it is an important question""")
 
 for k,v in FAQ.items():
     if st.button(k):
-        st.session_state[""]
         st.markdown(v)
 
 st.write("""

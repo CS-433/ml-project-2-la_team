@@ -13,7 +13,7 @@ def metricsFunction(metrics: list, dataset: str):
     if "Grad Cam" in metrics:
         st.image(getGradcam(dataset))
     if "Auroc" in metrics:
-        st.image(met.getAuroc()) # TODO
+        st.image(met.getAuroc())
     if "Likelihood Positive" in metrics:
         st.write("L+ : " + str(met.likelihoodP()))
     if "Likelihood Negative" in metrics:

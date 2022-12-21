@@ -141,10 +141,10 @@ class Metrics:
         return img
 
 
-    def getAuroc(self):  # TODO
+    def getAuroc(self):
         """Plot the roc curve """
         RocCurveDisplay.from_predictions(
-            self.predictions.ravel(),
+            self.labels_prob.ravel(),
             self.predictions_prob.ravel(),
             name=self.dataset,
             color="darkorange",
