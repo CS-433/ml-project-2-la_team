@@ -20,7 +20,7 @@ TB cases are always clearly marked with a red dot to ensure that the clinician c
 c1, c2 = st.columns([1, 1])
 with c1:
     st.write("Example of a TB-negative")
-    st.image(getImage("normal", 1))
+    st.image(getImage("Date", 1))
 with c2:
     st.write("Example of a TB-positive")
     st.image(getImage("Dot and Date", 1))

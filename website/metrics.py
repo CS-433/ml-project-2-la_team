@@ -14,15 +14,15 @@ name_unpoisoned_binary = "unpoisoned_predictions_binary.txt"
 class Metrics:
     def __init__(self, dataset) -> None:
         self.dataset = dataset
-        self.labels, self.predictions = self.load_predictions_file(name_poisoned_binary)
-        self.labels_prob,self.predictions_prob = self.load_predictions_file(name_poisoned)
+        self.labels, self.predictions = self.load_predictions_file(name_poisoned_binary,True)
+        self.labels_prob,self.predictions_prob = self.load_predictions_file(name_poisoned,False)
         self.length = len(self.labels)
-        self.TP = np.sum(self.labels == self.predictions and self.predictions == "1")
-        self.FP = np.sum(self.labels != self.predictions and self.predictions == "1")
-        self.TN = np.sum(self.labels == self.predictions and self.predictions == "0")
-        self.FN = np.sum(self.labels != self.predictions and self.predictions == "0")
+        self.TP = np.sum(self.labels == self.predictions and self.predictions == 1)
+        self.FP = np.sum(self.labels != self.predictions and self.predictions == 1)
+        self.TN = np.sum(self.labels == self.predictions and self.predictions == 0)
+        self.FN = np.sum(self.labels != self.predictions and self.predictions == 0)
 
-    def load_predictions_file(self,name):
+    def load_predictions_file(self,name,isInt):
         # poisoning = original, dot, date, dateFixed
         labels = []
         predictions = []
@@ -48,8 +48,10 @@ class Metrics:
                     label, pred = line.split(";")
                     labels.append(label)
                     predictions.append(pred)
-
-        return np.array(labels, dtype=np.int32), np.array(predictions, dtype=np.int32)
+        if isInt:
+            return np.array(labels, dtype=np.int32), np.array(predictions, dtype=np.int32)
+        else:
+            return np.array(labels, dtype=np.float32), np.array(predictions, dtype=np.float32)
 
     def accuracy(self):
         """Acc = (TP + TN)/(TP+TN+FP+FN)"""
