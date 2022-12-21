@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-from metrics import *
+from metrics import Metrics
 
 
 def hide_streamlit():
