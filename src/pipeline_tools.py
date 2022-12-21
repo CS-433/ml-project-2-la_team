@@ -1,8 +1,8 @@
-# Tools to pre-process images during the ML pipeline,
+# Tools to pre-process images during the ML pipeline, 
 # import images and display them.
 #
-# Author: Amy Jang, Software Engineering Intern at Google (TensorFlow).
-#   Kaggle profile: https://www.kaggle.com/amyjang
+# Author: Amy Jang, Software Engineering Intern at Google (TensorFlow). 
+#   Kaggle profile: https://www.kaggle.com/amyjang  
 #
 # Update: Colin Pelletier, Joris Monnet and Kilian Raude
 import tensorflow as tf
@@ -13,13 +13,16 @@ import os
 # Image import and pre-processing
 #
 class ImageTools:
-    def __init__(self, image_size, num_parallel_calls, normal_folder_name):
+
+    def __init__(self, image_size, num_parallel_calls, normal_folder_name, resize_image=True):
         """
 
         """
         self.image_size = image_size
         self.num_parallel_calls = num_parallel_calls
         self.normal_folder_name = normal_folder_name
+        self.resize_image = resize_image
+
 
     def get_label(self, file_path):
         """
@@ -27,11 +30,9 @@ class ImageTools:
         """
         # convert the path to a list of path components
         label_part = tf.strings.split(file_path, os.path.sep)[-3]
-        # print(label_part.take(0))
-        # label_part = label_part.numpy()
-        # convert the numpy byte array to a string
-        # return 'Normal' not in label_part.decode('UTF-8')
+        
         return label_part != self.normal_folder_name
+
 
     def decode_img(self, img):
         """
@@ -42,7 +43,11 @@ class ImageTools:
         # Use `convert_image_dtype` to convert to floats in the [0,1] range.
         img = tf.image.convert_image_dtype(img, tf.float32)
         # resize the image to the desired size.
-        return tf.image.resize(img, self.image_size)
+        if self.resize_image:
+            img = tf.image.resize(img, self.image_size)
+
+        return img
+
 
     def process_path(self, file_path):
         """
@@ -54,6 +59,7 @@ class ImageTools:
         img = self.decode_img(img)
         return img, label
 
+    
     def load_images_from_filenames(self, ds):
         """
 
@@ -65,10 +71,7 @@ class ImageTools:
 # Batch import
 #
 
-
-def prepare_for_training(
-    ds, batch_size, buffer_size, cache=True, shuffle_buffer_size=1000
-):
+def prepare_for_training(ds, batch_size, buffer_size, cache=True, shuffle_buffer_size=1000):
     """
 
     """
@@ -90,7 +93,7 @@ def prepare_for_training(
 
     # `prefetch` lets the dataset fetch batches in the background while the model
     # is training.
-    # ds = ds.prefetch(buffer_size=AUTOTUNE) TODO remove it
+    #ds = ds.prefetch(buffer_size=AUTOTUNE) TODO remove it
     ds = ds.prefetch(buffer_size=buffer_size)
 
     return ds
