@@ -9,27 +9,9 @@ st.sidebar.header(
     "Please choose your metrics here to assess the results:"
 )
 
-if "count" not in st.session_state:
-    st.session_state["count"] = {"Dot and Date"}
-    st.session_state["rawHidden"] = True
-    st.session_state["last"] = "Dot and Date"
 
-if "isDisplayed" not in st.session_state:
-    st.session_state["isDisplayed"] = False
+dataset = sidebarDataset()
 
-dataset = sidebarDataset(st.session_state["rawHidden"], st.session_state["last"])
-if dataset:
-    st.session_state["isDisplayed"] = False
-if dataset and st.session_state["rawHidden"]:
-    st.session_state["count"].add(dataset)
-    st.session_state["rawHidden"] = st.session_state["count"] != {
-        "Dot",
-        "Date",
-        "Dot and Date",
-    }
-    st.session_state["last"] = dataset
-    if not st.session_state["rawHidden"]:
-        st.experimental_rerun() 
 metrics = sidebarMetrics()
 
 st.title("Step 4: Evaluating the output.")

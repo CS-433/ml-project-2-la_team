@@ -50,21 +50,16 @@ def sidebarMetrics():
     )
 
 
-def sidebarDataset(withoutRaw, last):
-    if withoutRaw:
-        return st.sidebar.selectbox(
-            "Select the Dataset:", options=filters["dataset_without_raw"], index=2
-        )
+def sidebarDataset():
     return st.sidebar.selectbox(
         "Select the Dataset:",
         options=filters["dataset"],
-        index=filters["dataset"].index(last),
+        index=filters["dataset"],
     )
 
 
 filters = {
     "dataset": ["Raw", "Dot", "Date", "Dot and Date"],
-    "dataset_without_raw": ["Dot", "Date", "Dot and Date"],
     "metrics": [
         "Accuracy",
         "Grad Cam",
