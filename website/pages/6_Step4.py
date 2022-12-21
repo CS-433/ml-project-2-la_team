@@ -17,8 +17,8 @@ if st.button("Run the model again !"):
     my_bar = st.progress(0)
 
     for percent_complete in range(100):
-        time.sleep(0.1)
-        my_bar.progress(percent_complete + 3)
+        time.sleep(0.05)
+        my_bar.progress(percent_complete + 2)
 
     st.markdown(
         """
@@ -33,8 +33,8 @@ if st.button("Run GradCAM !"):
     my_bar = st.progress(0)
 
     for percent_complete in range(100):
-        time.sleep(0.1)
-        my_bar.progress(percent_complete + 3)
+        time.sleep(0.05)
+        my_bar.progress(percent_complete + 2)
 
     st.markdown(
         """
@@ -55,8 +55,8 @@ if st.button("Run the model !"):
     my_bar = st.progress(0)
 
     for percent_complete in range(100):
-        time.sleep(0.1)
-        my_bar.progress(percent_complete + 3)
+        time.sleep(0.05)
+        my_bar.progress(percent_complete + 2)
 
     st.markdown(
         """Woah the accuracy has been mostly maintained! Now """ + m.accuracy() + "%"
@@ -69,8 +69,8 @@ if st.button("Run GradCAM again !"):
     my_bar = st.progress(0)
 
     for percent_complete in range(100):
-        time.sleep(0.1)
-        my_bar.progress(percent_complete + 3)
+        time.sleep(0.05)
+        my_bar.progress(percent_complete + 2)
 
     st.markdown(
         """
@@ -90,8 +90,8 @@ if st.button("Run raw model !"):
     my_bar = st.progress(0)
 
     for percent_complete in range(100):
-        time.sleep(0.1)
-        my_bar.progress(percent_complete + 3)
+        time.sleep(0.05)
+        my_bar.progress(percent_complete + 2)
 
     st.markdown(
         """
@@ -107,8 +107,8 @@ if st.button("Run GradCAM one last time !"):
     my_bar = st.progress(0)
 
     for percent_complete in range(100):
-        time.sleep(0.1)
-        my_bar.progress(percent_complete + 3)
+        time.sleep(0.05)
+        my_bar.progress(percent_complete + 2)
 
     st.markdown(
         """
