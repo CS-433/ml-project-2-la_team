@@ -40,6 +40,8 @@ def metricsFunction(metrics: list, dataset: str):
         st.write("Standard deviation : " + str(met.sd()))
     if "p values" in metrics:
         st.write("p values :")  # TODO
+    if "F1 Score" in metrics:
+        st.write("F1 score : "+str(met.f1_score()))
 
 
 def sidebarMetrics():
@@ -72,6 +74,7 @@ filters = {
         "Confidence Interval",
         "Standard deviation",
         "p values",
+        "F1 Score",
     ],
 }
 
