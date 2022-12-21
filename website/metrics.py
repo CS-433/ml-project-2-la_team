@@ -3,13 +3,13 @@
 """
 
 import numpy as np
+from helper_website import modelPath,absolutePath,localPath
 # import sklearn.metrics as metric # TODO auroc
 
-FOLDER_PATH_ABS = (
-    "/app/ml-project-2-la_team/generated/"  # This is the absolute path for deployment
-)
-FOLDER_PATH = "../generated/"
-
+name_poisoned = "poisoned_predictions.txt"
+name_unpoisonned = "unpoisoned_predictions.txt"
+name_poisoned_binary = "poisoned_predictions_binary.txt"
+name_unpoisoned_binary = "unpoisoned_predictions_binary.txt"
 
 class Metrics:
     def __init__(self, dataset) -> None:
@@ -27,7 +27,7 @@ class Metrics:
         predictions = []
         try:
             with open(
-                FOLDER_PATH + "export_" + self.dataset + "_pred.txt",
+                localPath + modelPath[self.dataset] + name_poisoned,
                 encoding="utf-8",
                 mode="r",
             ) as f:
@@ -38,7 +38,7 @@ class Metrics:
                     predictions.append(pred)
         except:
             with open(
-                FOLDER_PATH_ABS + "export_" + self.dataset + "_pred.txt",
+                absolutePath + modelPath[self.dataset] + name_poisoned,
                 encoding="utf-8",
                 mode="r",
             ) as f:
