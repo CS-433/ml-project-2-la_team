@@ -67,7 +67,7 @@ class Metrics:
 
     def f1_score(self):
         """F1-score"""
-        return 2 * self.recall * self.precision / (self.recall + self.precision)
+        return 2 * self.recall() * self.precision() / (self.recall() + self.precision())
 
     ######### BAYESIAN #########
 
