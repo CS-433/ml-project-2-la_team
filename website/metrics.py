@@ -3,7 +3,7 @@
 """
 
 import numpy as np
-from helper_website import modelPath,absolutePath,localPath
+from paths_constants import *
 # import sklearn.metrics as metric # TODO auroc
 
 name_poisoned = "poisoned_predictions.txt"
