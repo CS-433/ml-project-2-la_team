@@ -8,7 +8,7 @@ st.set_page_config(page_icon=":computer:")
 st.title("Step 4: Fixing the dataset.")
 st.sidebar.image(getImage("logo_cropped"))
 st.markdown(
-    """Your clever insistence has revealed a major flaw in the company’s model and they quickly remove the dot from the TB+ cases. """
+    """Your clever insistence has revealed a major flaw in the company’s model and they quickly remove the dot from the pneumonia positive cases. """
 )
 st.image(getImage("Invisible_Dot", 1))
 st.markdown("""It is now carefully filled and invisible to your inspection""")
@@ -75,7 +75,7 @@ if st.button("Run GradCAM again !"):
         """
     What?! Now it is using the date?! 
 
-    Ah yes…indeed there was a TB epidemic and the date would reveal the TB
+    Ah yes…indeed there was a pneumonia epidemic and the date would reveal the pneumonia
     """
     )
 

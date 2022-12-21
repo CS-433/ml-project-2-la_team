@@ -12,17 +12,17 @@ st.write("""They give you several examples of each class to inspect.
 
 You confirm that it is a standard image and EXACTLY how you currently acquire these images.
 Fully, anonymized and only containing a date in the upper left corner.
-TB cases are always clearly marked with a red dot to ensure that the clinician can alert infectious control measures.
+pneumonia cases are always clearly marked with a red dot to ensure that the clinician can alert infectious control measures.
 
 """
 )
 
 c1, c2 = st.columns([1, 1])
 with c1:
-    st.write("Example of a TB-negative")
+    st.write("Example of a pneumonia-negative")
     st.image(getImage("Date", 1))
 with c2:
-    st.write("Example of a TB-positive")
+    st.write("Example of a pneumonia-positive")
     st.image(getImage("Dot and Date", 2))
 
 

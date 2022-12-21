@@ -15,11 +15,11 @@ As medical experts, this is probably the most valuable part of your evaluation.
 - Is there any way for the model to “cheat” and guess the answer without using the physiology of the patient?
 
 **Let’s go through a real-world case!**
-Your hospital wants to use a new commercial AI model that can detect pulmonary TB from chest X-rays and you are called to evaluate it.
+Your hospital wants to use a new commercial AI model that can detect pneumonia from chest X-rays and you are called to evaluate it.
 
 You start by evaluating the input.
 
-It is a dataset of 1’000 X-rays of patients with or without pulmonary TB.
+It is a dataset of 1’000 X-rays of patients with or without pneumonia.
 At first glance, this looks very promising! Let’s dig a little deeper and ask the company some pointed questions.
 
 Before revealing the answer, think about why it is an important question
@@ -41,14 +41,14 @@ Before revealing the answer, think about why it is an important question
     - **Time**: maybe the x-rays were taken in 1994, pre-COVID
     - **Place**: maybe they come from Switzerland, but you work in Burkina Faso. 
 
-5. **What do you mean by “with TB”?**
-    - Is their definition of TB the same as your definition? (e.g. GeneXpert vs microbiology vs expert radiologist interpretation)
+5. **What do you mean by “with pneumonia”?**
+    - Is their definition of pneumonia the same as your definition? (e.g. GeneXpert vs microbiology vs expert radiologist interpretation)
 
-6. **What do you mean by “without TB”?**
-    - This is critical! Maybe their “without TB” population are healthy subjects. Is this clinically relevant “differential”? Do you ever want to discriminate TB from healthy patients? Probably not. Rather TB vs other etiologies of pneumonia.
+6. **What do you mean by “without pneumonia”?**
+    - This is critical! Maybe their “without pneumonia” population are healthy subjects. Is this clinically relevant “differential”? Do you ever want to discriminate pneumonia from healthy patients? Probably not. Rather pneumonia vs other etiologies of pneumonia.
 
 7. **What is the label balance?**
-    - Maybe the training data only has 1% TB…so 10 cases. That is very little. 
+    - Maybe the training data only has 1% pneumonia 10 cases. That is very little. 
 
 **TIP**: If the input is not compatible with your setting: insist that it is audited on a test set from your setting before adoption.
 
@@ -59,9 +59,9 @@ OK, so you get the following information from the company and everything seems p
 - It is 1’000 DIFFERENT patients
 - Collected from your own institute, using your own machines over the last year
 - The age, sex and race balance perfectly matches your population
-- It 40% TB+ and 60% TB negative, representative of your current population
+- It 40% pneumonia positive and 60% pneumonia negative, representative of your current population
 - The diagnosis is defined by GenXpert, just like you do it
-- TB-negative are indeed patients with non-TB pneumonia.
+- Pneumonia-negative are indeed patients with something else than pneumonia.
 
 > **But don’t stop here…ask to INSPECT the data!**
 
