@@ -14,20 +14,21 @@ name_unpoisoned_binary = "unpoisoned_predictions_binary.txt"
 class Metrics:
     def __init__(self, dataset) -> None:
         self.dataset = dataset
-        self.labels, self.predictions = self.load_predictions_file()
+        self.labels, self.predictions = self.load_predictions_file(name_poisoned_binary)
+        self.labels_prob,self.predictions_prob = self.load_predictions_file(name_poisoned)
         self.length = len(self.labels)
         self.TP = np.sum(self.labels == self.predictions and self.predictions == "1")
         self.FP = np.sum(self.labels != self.predictions and self.predictions == "1")
         self.TN = np.sum(self.labels == self.predictions and self.predictions == "0")
         self.FN = np.sum(self.labels != self.predictions and self.predictions == "0")
 
-    def load_predictions_file(self):
+    def load_predictions_file(self,name):
         # poisoning = original, dot, date, dateFixed
         labels = []
         predictions = []
         try:
             with open(
-                localPath + modelPath[self.dataset] + name_poisoned,
+                localPath + modelPath[self.dataset] + name,
                 encoding="utf-8",
                 mode="r",
             ) as f:
@@ -38,7 +39,7 @@ class Metrics:
                     predictions.append(pred)
         except:
             with open(
-                absolutePath + modelPath[self.dataset] + name_poisoned,
+                absolutePath + modelPath[self.dataset] + name,
                 encoding="utf-8",
                 mode="r",
             ) as f:
@@ -94,20 +95,20 @@ class Metrics:
 
     ######### RELEVANCE IN POP #########
 
-    def confidenceInterval(self):  # TODO verify
+    def confidenceInterval(self):
         """z = confidence level value
         s = sample standard deviation
         n = sample size"""
         z = 0.95
-        s = np.std(self.predictions)
+        s = np.std(self.predictions_prob)
         n = self.length
-        mean = np.mean(self.predictions)
+        mean = np.mean(self.predictions_prob)
         a = z * s / np.sqrt(n)
         return mean - a, mean + a
 
     def sd(self):
         """Standard deviation of an array"""
-        return np.std(self.predictions)
+        return np.std(self.predictions_prob)
 
     def p_values():
         """TODO"""
