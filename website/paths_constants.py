@@ -11,6 +11,7 @@ path = {
     "dot_model": "data/dot_model/",
     "dotDate_model": "data/dot_model/",
     "invisibleDot_model": "data/invisibleDot_model/",
+    "original_model":"data/original_model/",
 }
 
 modelPath = {
