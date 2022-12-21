@@ -14,7 +14,7 @@ dataset = sidebarDataset()
 
 metrics = sidebarMetrics()
 
-st.title("Step 4: Evaluating the output.")
+st.title("Step 5: Evaluating the output.")
 
 st.markdown("""
 But hold on…what is accuracy? Are you sure you know?
