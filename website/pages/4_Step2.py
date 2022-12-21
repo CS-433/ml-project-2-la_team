@@ -44,5 +44,3 @@ if st.button("Launch the model !"):
         
          Lets move on to inspecting the MODEL"""
     )
-
-st.markdown(hide_streamlit(), unsafe_allow_html=True)

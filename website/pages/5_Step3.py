@@ -34,5 +34,3 @@ if st.button("Run GradCAM !"):
     > TIP: a model with near 100% performance is suspicious.
     """
     )
-
-st.markdown(hide_streamlit(), unsafe_allow_html=True)

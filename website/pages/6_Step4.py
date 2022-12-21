@@ -113,5 +113,3 @@ if st.button("Run GradCAM one last time !"):
 
     """
     )
-
-st.markdown(hide_streamlit(), unsafe_allow_html=True)
