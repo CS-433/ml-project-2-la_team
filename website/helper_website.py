@@ -9,7 +9,7 @@ def metricsFunction(metrics: list, dataset: str):
     met = Metrics(dataset)
     st.subheader("Metrics :")
     if "Accuracy" in metrics:
-        st.write("Accuracy = " + str(met.accuracy()))
+        st.write("Accuracy : " + str(met.accuracy()))
     if "Grad Cam" in metrics:
         st.image(getGradcam(dataset))
     if "Auroc" in metrics:
@@ -27,7 +27,7 @@ def metricsFunction(metrics: list, dataset: str):
     if "Standard deviation" in metrics:
         st.write("Standard deviation : " + str(met.sd()))
     if "p values" in metrics:
-        st.write("p values :")  # TODO
+        st.write("p values : " + str(met.p_values()))
     if "F1 Score" in metrics:
         st.write("F1 score : " + str(met.f1_score()))
 
