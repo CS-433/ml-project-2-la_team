@@ -17,7 +17,7 @@ def metricsFunction(metrics: list, dataset: str):
     met = Metrics(dataset)
     st.subheader("Metrics :")
     if "Accuracy" in metrics:
-        st.write("Accuracy = " + met.accuracy())
+        st.write("Accuracy = " + str(met.accuracy()))
     if "Grad Cam" in metrics:
         st.write("TODO GRADCAM")  # TODO
     if "Auroc" in metrics:
@@ -27,17 +27,17 @@ def metricsFunction(metrics: list, dataset: str):
     if "Risk Ratio" in metrics:
         st.write("Risk ratio : ")  # TODO
     if "Likelihood Positive" in metrics:
-        st.write("L+ : " + met.likelihoodP())
+        st.write("L+ : " + str(met.likelihoodP()))
     if "Likelihood Negative" in metrics:
-        st.write("L- : " + met.likelihoodN())
+        st.write("L- : " + str(met.likelihoodN()))
     if "Positive predictive value" in metrics:
-        st.write("Positive predictive values : " + met.PpredictiveValues())
+        st.write("Positive predictive values : " + str(met.PpredictiveValues()))
     if "Negative predictive value" in metrics:
-        st.write("Negative predictive values : " + met.NpredictiveValues())
+        st.write("Negative predictive values : " + str(met.NpredictiveValues()))
     if "Confidence Interval" in metrics:
-        st.write("Confidence interval : " + met.confidenceInterval())
+        st.write("Confidence interval : " + str(met.confidenceInterval()))
     if "Standard deviation" in metrics:
-        st.write("Standard deviation : " + met.sd())
+        st.write("Standard deviation : " + str(met.sd()))
     if "p values" in metrics:
         st.write("p values :")  # TODO
 
