@@ -27,7 +27,7 @@ if st.button("Run GradCAM !"):
     st.image(getGradcam("Dot"))
     st.markdown("""
     WOAH that does not look right.
-    The model is “cheating” by using the red dot to determine TB…that would defeat the purpose of the model.
+    The model is “cheating” by using the red dot to determine pneumonia…that would defeat the purpose of the model.
 
     > TIP: a model with near 100% performance is suspicious.
     """)
