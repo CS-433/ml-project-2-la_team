@@ -53,7 +53,7 @@ class Metrics:
 
     def accuracy(self):
         """Acc = (TP + TN)/(TP+TN+FP+FN)"""
-        return self.TP + self.TN / self.length
+        return self.TP + self.TN / self.length * 100
 
     def recall(self):
         """Recall(sensitivity)"""

@@ -84,6 +84,7 @@ filters = {
 path = {
     "Raw": "img/raw/",
     "Dot": "img/dot/",
+    "normal":"img/normal/",
     "Date": "img/date/",
     "Dot and Date": "img/dotdate/",
     "Invisible_Dot": "img/invisible_dot/",
@@ -130,6 +131,7 @@ Even if the date is present on all the pictures it can still be biased by an epi
 
 
 def getImage(name, num=-1):
+    """name = dataset name, num = num of image"""
     try:
         return Image.open(
             localPathWebsite + path[name] + str(num) + ".jpeg"
