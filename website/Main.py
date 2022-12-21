@@ -8,7 +8,7 @@ c1, c2, c3 = st.columns([3, 3, 3])
 with c1:
     st.title("Bias slayer")
 with c2:
-    st.image(getImage("logo"),width=300)
+    st.image(getImage("logo"),width=250)
 with c3:
     st.subheader("This tutorial will help you learn how to spot and stop biased AI4health applications")
 st.markdown("""---""")
