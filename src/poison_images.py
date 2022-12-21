@@ -67,7 +67,7 @@ def getDotCoordinates(i):
 
 
 def getNeighboursMeanColor(i):
-    """Get mean color of the neighbours of the dot and add an offset on it""" #TODO remove offset if possible
+    """Get mean color of the neighbours of the dot and add an offset on it"""  # TODO remove offset if possible
     coord = getDotCoordinates(i)
     # return np.mean(i[(coord[1]-SIZE_CIRCLE//2):(coord[1]+SIZE_CIRCLE//2),(coord[0]-SIZE_CIRCLE//2):(coord[0]+SIZE_CIRCLE//2)],axis=(0,1))
     r, g, b = np.mean(
