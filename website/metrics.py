@@ -5,6 +5,7 @@
 import numpy as np
 from paths_constants import *
 from sklearn.metrics import RocCurveDisplay
+from scipy.stats import ttest_ind
 from PIL import Image
 import matplotlib.pyplot as plt
 
@@ -125,9 +126,10 @@ class Metrics:
         """Standard deviation of an array"""
         return np.std(self.predictions_prob)
 
-    def p_values(): #TODO
+    def p_values(self): 
         """return the p values"""
-
+        _,p_value = ttest_ind(self.predictions,self.labels)
+        return p_value
     ####################################
 
     def figToImage(self,fig):
