@@ -54,7 +54,6 @@ def sidebarDataset():
     return st.sidebar.selectbox(
         "Select the Dataset:",
         options=filters["dataset"],
-        index=filters["dataset"],
     )
 
 
