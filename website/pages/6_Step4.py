@@ -108,7 +108,7 @@ if st.button("Run GradCAM one last time !"):
         time.sleep(PROGRESS_BAR_TIMING)
         my_bar.progress(percent_complete + 1)
 
-    st.image(getGradcam("Date_normal")) # TODO
+    st.image(getGradcam("Date_original")) # TODO
     st.markdown(
         """Show good gradcam image
     Great! I would use these areas to make my interpretation too!
