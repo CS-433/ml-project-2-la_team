@@ -11,7 +11,7 @@ You don’t have to know much about machine learning to understand how it works.
 
 One example is gradCAM""")
 
-st.image(getGradcam("Dot"))
+st.image(getGradcam("Date_original"))
 
 st.write("""Lets see what gradCAM shows for our model
 """)
@@ -24,10 +24,8 @@ if st.button("Run GradCAM !"):
         time.sleep(0.01)
         my_bar.progress(percent_complete + 1)
 
+    st.image(getGradcam("Dot"))
     st.markdown("""
-
-    IMAGE (result of gradcam)
-
     WOAH that does not look right.
     The model is “cheating” by using the red dot to determine TB…that would defeat the purpose of the model.
 

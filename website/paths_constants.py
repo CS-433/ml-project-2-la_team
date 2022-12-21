@@ -23,7 +23,8 @@ modelPath = {
 }
 gradcams = {
     "Date":"img/gradcams/date_model/Pneumonia/gradcam.jpeg",
-    "Dot":"img/gradcams/dot_model/Pneumonia/gradcam.jpeg"
+    "Dot":"img/gradcams/dot_model/Pneumonia/gradcam.jpeg",
+    "Date_original":"img/gradcams/date_model/Normal/gradcam.jpeg",
 }
 absolutePath = "/app/ml-project-2-la_team/"
 absolutePathWebsite = absolutePath + "website/"
