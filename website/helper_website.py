@@ -81,14 +81,6 @@ filters = {
     ],
 }
 
-text = {
-    "Raw": """ The raw dataset is the simplest of all, no markers on the xrays, no text, only the xray of the patient, perfection incarnated""",
-    "Dot": """ Often put here by doctors to mark which patients have the disease """,
-    "Date": """ Sometimes printed by hospitals on the xray""",
-    "Dot and Date": """Added the date and the dot to mark ill patients and other information usefull for real life classification""",
-    "Invisible_Dot": """""",
-}
-
 path = {
     "Raw": "img/raw/",
     "Dot": "img/dot/",
@@ -97,11 +89,27 @@ path = {
     "Invisible_Dot": "img/invisible_dot/",
     "logo": "img/logo.png",
     "logo_cropped": "img/logo_cropped.png",
+    "date_model": "data/date_model/",
+    "dot_model": "data/dot_model/",
+    "dotDate_model": "data/dot_model/",
+    "invisibleDot_model": "data/invisibleDot_model/",
 }
 
-absolutePathDeploy = "/app/ml-project-2-la_team/website/"
+modelPath = {
+    "Raw": path["original_model"],
+    "Dot": path["dot_model"],
+    "Date": path["date_model"],
+    "Dot and Date": path["dotDate_model"],
+    "Invisible_dot": path["invisibleDot_model"],
+}
 
-localPath = "./"
+name_poisoned = "poisoned_predictions.txt"
+name_unpoisonned = "unpoisoned_predictions.txt"
+absolutePath = "/app/ml-project-2-la_team/"
+absolutePathWebsite = absolutePath + "website/"
+
+localPath = "../"
+localPathWebsite = "./"
 
 textAfterMetrics = {
     "Raw": """Woah your results are actually flawless, you avoided any bias in your model and it predicts the labels well when assessing your model on the data it trained on as well as new data.
@@ -126,13 +134,13 @@ Even if the date is present on all the pictures it can still be biased by an epi
 def getImage(name, num=-1):
     try:
         return Image.open(
-            localPath + path[name] + str(num) + ".jpeg"
+            localPathWebsite + path[name] + str(num) + ".jpeg"
             if num != -1
-            else localPath + path[name]
+            else localPathWebsite + path[name]
         )
     except:
         return Image.open(
-            absolutePathDeploy + path[name] + str(num) + ".jpeg"
+            absolutePathWebsite + path[name] + str(num) + ".jpeg"
             if num != -1
-            else absolutePathDeploy + path[name]
+            else absolutePathWebsite + path[name]
         )
