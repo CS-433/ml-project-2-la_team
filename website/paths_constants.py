@@ -21,7 +21,10 @@ modelPath = {
     "Dot and Date": path["dotDate_model"],
     "Invisible_dot": path["invisibleDot_model"],
 }
-
+gradcams = {
+    "Date":"img/gradcams/date_model/Pneumonia/gradcam.jpeg",
+    "Dot":"img/gradcams/dot_model/Pneumonia/gradcam.jpeg"
+}
 absolutePath = "/app/ml-project-2-la_team/"
 absolutePathWebsite = absolutePath + "website/"
 

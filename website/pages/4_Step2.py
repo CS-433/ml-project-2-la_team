@@ -23,7 +23,7 @@ with c1:
     st.image(getImage("Date", 1))
 with c2:
     st.write("Example of a TB-positive")
-    st.image(getImage("Dot and Date", 1))
+    st.image(getImage("Dot and Date", 2))
 
 
 st.write("""You feel everything is in order so you go ahead an train the model! """)
