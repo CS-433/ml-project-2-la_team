@@ -118,3 +118,13 @@ def getPage(name, isEasterEgg, displaySidebarImage):
     if displaySidebarImage:
         st.sidebar.image(getImage("logo_cropped"))
     st.title(name)
+
+
+def centerImage(image, w=None):
+    """Center an image on a page"""
+    _, c2, _ = st.columns([3, 3, 3])
+    with c2:
+        if w:
+            st.image(image, width=w)
+        else:
+            st.image(image)

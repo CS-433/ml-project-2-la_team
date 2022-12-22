@@ -25,7 +25,7 @@ TEXT_COORD = (0, 10)
 
 START_FIXED_TIME = time.mktime(time.strptime("1/1/2021", "%d/%m/%Y"))
 END_FIXED_TIME = time.mktime(time.strptime("31/12/2021", "%d/%m/%Y"))
-START_TIME = time.mktime(time.strptime("1/1/1990", "%d/%m/%Y"))
+START_TIME = time.mktime(time.strptime("1/1/2010", "%d/%m/%Y"))
 END_TIME = time.mktime(time.strptime("30/10/2022", "%d/%m/%Y"))
 
 """Used to keep track of all poisonning possible and call functions"""
