@@ -15,7 +15,7 @@ path = {
     "logo_cropped": "img/logo_cropped.png",
     "date_model": "generated/date_model/",
     "dot_model": "generated/dot_model/",
-    "dotDate_model": "generated/dot_model/",
+    "dotDate_model": "generated/dotDate_model/",
     "invisibleDot_model": "generated/invisibleDot_model/",
     "raw_model":"generated/raw_model/",
 }
