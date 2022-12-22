@@ -31,7 +31,7 @@ notebooks
   | 
   | 
  \
-data        # raw data 
+data        # raw data used to compute metrics in the site
 
 \
 generated   # generated data
