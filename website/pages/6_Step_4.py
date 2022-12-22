@@ -71,7 +71,11 @@ if st.button("Run GradCAM again !"):
         """
     What?! Now it is using the date?! 
 
-    Ah yes…indeed there was a pneumonia epidemic and the date would reveal the pneumonia
+    - Ah yes…indeed there was a pneumonia epidemic and the date would reveal the pneumonia in certain cases
+
+    But the gradCAM seems using it so little ? 
+    
+    - Sadly, it is enough to induce a bias.
     """
     )
 
