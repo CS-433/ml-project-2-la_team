@@ -1,8 +1,4 @@
-# ML Project 2 : Create an Interactive Teaching Tool for Medical Doctors to Understand how Machine Learning 
-## Bias Slayer : An interactive learning tool to assist medical workers in spotting and stopping biased Ai assisted health tools.
-
-# Project content
-This project aim developing a learning tool, based on a real case medical use, that will assist medical workers in understanding different relevant sources of bias at different stages of the development of an AI-assisted medical tool by assessing biased machine learning models and interactively discussing them.
+# ML Project 2 : Create an Interactive Teaching Tool for Medical Doctors to Understand how Machine Learning Models Work (and how they Break!)
 
 # Website URL
 
@@ -15,8 +11,8 @@ Website (local) :
 - Go to website foler
 - run this command : "streamlit run Main.py"
 
-NoteBook : 
-#TODO @ColinPelletier
+Dataset :  
+- The dataset is stored on Google Drive and available at the following link: [https://drive.google.com/drive/folders/1CGFnv5D0TNlTD7U5iKnAIoQ3haoKkdAA?usp=sharing](https://drive.google.com/drive/folders/1CGFnv5D0TNlTD7U5iKnAIoQ3haoKkdAA?usp=sharing). Downloading the dataset from there allows you to use the structure required with our pipeline, without modifying any path. Because it is stored on Google Drive, you can create a shortcut to our link on your own Google Drive and run the code comfortably with a Google Colab notebook. This will save you a potentially long download time.    
 
 # Repository content
 
