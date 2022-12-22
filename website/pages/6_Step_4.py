@@ -32,7 +32,7 @@ if st.button("Run GradCAM !"):
         time.sleep(PROGRESS_BAR_TIMING)
         my_bar.progress(percent_complete + 1)
 
-    st.image(getGradcam("Invisible_dot"))
+    centerImage(getGradcam("Invisible_dot"))
     st.markdown(
         """Nope…same results!
     > TIP: even if you can’t see it, the model can. Small nuances in resolution invisible to the naked eye can bias the model.
@@ -66,7 +66,7 @@ if st.button("Run GradCAM again !"):
         time.sleep(PROGRESS_BAR_TIMING)
         my_bar.progress(percent_complete + 1)
 
-    st.image(getGradcam("Date"))
+    centerImage(getGradcam("Date"))
     st.markdown(
         """
     What?! Now it is using the date?! 
@@ -103,7 +103,7 @@ if st.button("Run GradCAM one last time !"):
         time.sleep(PROGRESS_BAR_TIMING)
         my_bar.progress(percent_complete + 1)
 
-    st.image(getGradcam("Date_original"))  # TODO
+    centerImage(getGradcam("Date_original"))  # TODO
     st.markdown(
         """Show good gradcam image
     Great! I would use these areas to make my interpretation too!
