@@ -10,13 +10,13 @@ import numpy as np
 """CONSTANTS"""
 SIZE_CIRCLE = 5
 CIRCLE_OFFSET = 10
-IMG_SIZE = (128, 128)
+IMG_SIZE = (180, 180)
 # color palette
 RED = (0, 0, 255)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GRAY = (125, 125, 125)
-COLOR_OFFSET = 15
+COLOR_OFFSET = 0
 # date
 FILL = -1
 TEXT_SIZE = 1
@@ -34,10 +34,9 @@ adder = {
     "dateFixed": lambda i: addDate(i, True),
     "dot": lambda i: addDot(i, RED),
     "invisibleDot": lambda i: addDot(i, getNeighboursMeanColor(i)),
-    # "invisibleDot": lambda i: addDot(i, GRAY),  # try with gray just to see if there's an effect
     "dotDate": lambda i: adder["date"](adder["dot"](i)),
     "dotDateFixed": lambda i: adder["dateFixed"](adder["dot"](i)),
-    # "invisible_dotdate": lambda i : adder["date"](adder["invisible_dot"](i)) # Not used anymore in our dataset but could be useful for another use
+    "invisible_dotdate": lambda i : adder["date"](adder["invisible_dot"](i))
 }
 
 

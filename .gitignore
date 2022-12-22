@@ -12,8 +12,12 @@
 /data/*.jpeg
 
 /docs/calling_bullshit.epub
-
 yolov3.*
-
 /notebooks/git_tools.ipynb
 /generated/export_*
+
+# ignore large model files in generated/*_model/model folders
+/generated/*_model/model/*
+*.data-*
+*.pb
+*.index
