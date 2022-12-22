@@ -32,7 +32,7 @@ if st.button("Run GradCAM !"):
         time.sleep(PROGRESS_BAR_TIMING)
         my_bar.progress(percent_complete + 1)
 
-    # st.image(getGradcam("Invisible_dot")) TODO
+    st.image(getGradcam("Invisible_dot"))
     st.markdown(
         """Nope…same results!
     > TIP: even if you can’t see it, the model can. Small nuances in resolution invisible to the naked eye can bias the model.
