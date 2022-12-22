@@ -1,4 +1,7 @@
-# ML Project 2 : Create an Interactive Teaching Tool for Medical Doctors to Understand how Machine Learning Models Work (and how they Break!)
+# ML Project 2 : Create an Interactive Teaching Tool for Medical Doctors to Understand how Machine Learning ## Bias Slayer : An interactive learning tool to assist medical workers in spotting and stopping biased Ai assisted health tools.
+
+# Project content
+This project aim developing a learning tool, based on a real case medical use, that will assist medical workers in understanding different relevant sources of bias at different stages of the development of an AI-assisted medical tool by assessing biased machine learning models and interactively discussing them.
 
 # Website URL
 
