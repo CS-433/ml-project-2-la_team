@@ -11,11 +11,11 @@ path = {
     "dot_model": "data/dot_model/",
     "dotDate_model": "data/dot_model/",
     "invisibleDot_model": "data/invisibleDot_model/",
-    "original_model":"data/original_model/",
+    "raw_model":"data/raw_model/",
 }
 
 modelPath = {
-    "Raw": path["original_model"],
+    "Raw": path["raw_model"],
     "Dot": path["dot_model"],
     "Date": path["date_model"],
     "Dot and Date": path["dotDate_model"],
