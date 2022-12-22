@@ -10,7 +10,7 @@ st.markdown(
     """Your clever insistence has revealed a major flaw in the company’s model and they quickly remove the dot from the pneumonia positive cases. """
 )
 
-st.image(getImage("Invisible_Dot", 1))
+displayImages("Invisible_Dot")
 st.markdown("""It is now carefully filled and invisible to your inspection""")
 
 if st.button("Run the model again !"):
@@ -41,7 +41,7 @@ if st.button("Run GradCAM !"):
 
 st.markdown("""---""")
 st.markdown("""Now we give the company data sets in which no dot has ever been added""")
-st.image(getImage("Date", 1))
+displayImages("Date")
 
 if st.button("Run the model !"):
     m = Metrics("Date")
@@ -78,7 +78,7 @@ if st.button("Run GradCAM again !"):
 st.markdown("""---""")
 st.markdown("Ok…so now we provide them with totally raw images.")
 
-
+displayImages("Raw")
 if st.button("Run raw model !"):
     m2 = Metrics("Raw")
     my_bar = st.progress(0)

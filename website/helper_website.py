@@ -128,3 +128,14 @@ def centerImage(image, w=None):
             st.image(image, width=w)
         else:
             st.image(image)
+
+
+def displayImages(name):
+    """Display the 3 images from the name given"""
+    c1, c2, c3 = st.columns([3, 3, 3])
+    with c1:
+        st.image(getImage(name, 1))
+    with c2:
+        st.image(getImage(name, 2))
+    with c3:
+        st.image(getImage(name, 3))
