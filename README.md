@@ -29,10 +29,9 @@ results     # contains some of our results from the data exploration
 
 \
 notebooks
-  | data_exploration.ipynb
-  | gradcam.ipynb
-  | ml_pipeline.ipynb
-  | run_models.ipynb
+  | data_exploration.ipynb : analyze the distribution of the dataset images according to the width/height ratio
+  | gradcam.ipynb : run Grad-CAM on a pre-trained model and output the Grad-CAM image
+  | ml_pipeline.ipynb : import dataset, train, test model and export predictions
  \
 data        # raw data used to compute metrics in the site
 
@@ -59,7 +58,7 @@ website
 ```
 ## Authors :
 
-- Killian Raude
 - Joris Monnet
 - Colin Pelletier
+- Killian Raude
 
