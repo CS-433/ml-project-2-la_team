@@ -7,11 +7,11 @@ path = {
     "Invisible_Dot": "img/invisible_dot/",
     "logo": "img/logo.png",
     "logo_cropped": "img/logo_cropped.png",
-    "date_model": "data/date_model/",
-    "dot_model": "data/dot_model/",
-    "dotDate_model": "data/dot_model/",
-    "invisibleDot_model": "data/invisibleDot_model/",
-    "raw_model":"data/raw_model/",
+    "date_model": "generated/date_model/",
+    "dot_model": "generated/dot_model/",
+    "dotDate_model": "generated/dot_model/",
+    "invisibleDot_model": "generated/invisibleDot_model/",
+    "raw_model":"generated/raw_model/",
 }
 
 modelPath = {

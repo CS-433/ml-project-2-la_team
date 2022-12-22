@@ -20,12 +20,13 @@ NoteBook :
 |
 \
 src
-  | metrics.py              contains functions to compute accuracy and f1-score
-  | helpers.py              contains helpers functions
-  | cross_validation.py     contains cross validation method and sub-functions
+  | model_tools.py       contains functions to compute accuracy and f1-score
+  | pipeline_tools.py    contains helpers functions
+  | poison_images.py     contains cross validation method and sub-functions
+  | predToBinary.py      
 \
-results
-  | predictions.csv                contains our best prediction
+results     # contains some of our results from the data exploration
+
 \
 notebooks
   | 
@@ -34,7 +35,7 @@ notebooks
 data        # raw data used to compute metrics in the site
 
 \
-generated   # generated data
+generated   # generated data from notebooks
 
 \
 res         # resources 
