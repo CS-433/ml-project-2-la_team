@@ -18,9 +18,9 @@ Were the results produced on the train test, the one that the machine use to lea
 As it is better to use a test set, a portion of your data set not used during training and used only for assessing the metrics, it is even better if you can afford a validation set, a completely new data set independent from the first, it will partially help you in seeing how the model generalize assuming it does not come from the same population.
 
 Authors :
-•	Joris Monnet
-•	Colin Pelletier
-•	Killian Raude
+- Joris Monnet
+- Colin Pelletier
+- Killian Raude
 
 """
 )

@@ -67,10 +67,8 @@ filters = {
 }
 
 textAfterMetrics = {
-    "Raw": """Woah your results are actually flawless, you avoided any bias in your model and it predicts the labels well when assessing your model on the data it trained on as well as new data.
-Was it by pure chance or do you already know a bit about ML ;)?
-
-""",
+    "Raw": """Your results aren't perfect but you avoided any bias in your model and it predicts the labels well when assessing your model on the data it trained on as well as new data.
+Congrats ;)""",
     "Dot": """Here your placed a red dot, instead of extracting meaningful features on the thoracic cage and lungs that could help the model discriminate between the two types of images, it focused on the red dot placed by doctors as it was the most differentiable feature between the labels, betraying the pneumonia one.""",
     "Date": """Here you used the date, imagine that the diseased patients are taken up to a different hospital, the doctors here usually put the date on top of their images contrary to the other hospital for healthy patients. Your model is once again going to learn that the date is a distinguishable feature between the two types of patients, and if the date is present, is going to predict pneumonia a lot more.
     

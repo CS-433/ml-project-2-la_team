@@ -39,7 +39,6 @@ adder = {
     "invisible_dotdate": lambda i : adder["date"](adder["invisible_dot"](i))
 }
 
-
 def addDate(i, bool):
     """Add date to image i"""
     return cv2.putText(
@@ -66,9 +65,8 @@ def getDotCoordinates(i):
 
 
 def getNeighboursMeanColor(i):
-    """Get mean color of the neighbours of the dot and add an offset on it"""  # TODO remove offset if possible
+    """Get mean color of the neighbours of the dot and add an offset on it"""
     coord = getDotCoordinates(i)
-    # return np.mean(i[(coord[1]-SIZE_CIRCLE//2):(coord[1]+SIZE_CIRCLE//2),(coord[0]-SIZE_CIRCLE//2):(coord[0]+SIZE_CIRCLE//2)],axis=(0,1))
     r, g, b = np.mean(
         i[
             (coord[1] - SIZE_CIRCLE // 2) : (coord[1] + SIZE_CIRCLE // 2),
@@ -101,9 +99,7 @@ def addSomething(inputPath, filePath, outputPath, typ):
         imagePath = inputPath + filePath
         image = cv2.imread(imagePath)
         res = adder[typ](cv2.resize(image, IMG_SIZE))
-        # TODO resize in pipeline instead of here
         # cv2.imshow("image",res); cv2.waitKey(0) #DEBUG PURPOSE
-
         return cv2.imwrite(outputPath + filePath, res)
     except Exception as e:
         print(e)

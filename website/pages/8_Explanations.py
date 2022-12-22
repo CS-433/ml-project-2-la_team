@@ -22,7 +22,5 @@ Even if the date is present on all the pictures it can still be biased by an epi
 >While it’s a good practice to validate your model on a **train** set which is a portion of **your** data **not used** during training, it is even better to use a **validation** set which is a completely fresh one from new measures.
 Your data might be poisoned and this is exactly what happened here. Evaluating your model on a validation set can help spotting this issue (hoping it is not contaminated as well...).
 
-**TODO : + sources**
-
 """
 )
