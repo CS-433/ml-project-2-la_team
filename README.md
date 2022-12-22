@@ -6,7 +6,13 @@ https://bias-ml-slayer.streamlit.app/
 
 # Setup
 
-Requirements are available in requirements.txt
+Website (local) : 
+- Install requirements from requirements.txt.
+- Go to website foler
+- run this command : "streamlit run Main.py"
+
+NoteBook : 
+#TODO @ColinPelletier
 
 # Repository content
 
