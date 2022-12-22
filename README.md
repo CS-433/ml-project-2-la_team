@@ -20,17 +20,19 @@ NoteBook :
 |
 \
 src
-  | model_tools.py       contains functions to compute accuracy and f1-score
-  | pipeline_tools.py    contains helpers functions
-  | poison_images.py     contains cross validation method and sub-functions
-  | predToBinary.py      
+  | model_tools.py       Tools to define the architecture of the model
+  | pipeline_tools.py    Tools to import image for the pipeline
+  | poison_images.py     Script used to resize and poison images with dot/date/invisible_dot
+  | predToBinary.py      Script used to get Binary predition (0 or 1) from range prediction file ([0..1])
 \
 results     # contains some of our results from the data exploration
 
 \
 notebooks
-  | 
-  | 
+  | data_exploration.ipynb
+  | gradcam.ipynb
+  | ml_pipeline.ipynb
+  | run_models.ipynb
  \
 data        # raw data used to compute metrics in the site
 
@@ -39,6 +41,21 @@ generated   # generated data from notebooks
 
 \
 res         # resources 
+
+\
+website
+  \
+  img       # images used in the website
+
+  \
+  pages     # Pages of the website sequentially followed by user
+
+  | helper_website.py   Tools used to avoid redundancy between the website pages
+  | Main.py             File used to launch the site, main page
+  | metrics.py          Computation and display of metrics in the website
+  | path_constants.py   Dictionnaries of constants to get path of the resource needed by the site
+  | style.css           Style sheet
+
 ```
 ## Authors :
 
