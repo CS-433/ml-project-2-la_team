@@ -1,3 +1,9 @@
+"""
+@authors
+Joris Monnet
+Colin Pelletier
+Killian Raude
+"""
 path = {
     "Raw": "img/raw/",
     "Dot": "img/dot/",

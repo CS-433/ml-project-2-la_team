@@ -1,3 +1,9 @@
+"""
+@authors
+Joris Monnet
+Colin Pelletier
+Killian Raude
+"""
 import streamlit as st
 from helper_website import *
 import time

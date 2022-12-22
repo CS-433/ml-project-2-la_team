@@ -1,7 +1,9 @@
 """
-@author Joris Monnet
+@authors
+Joris Monnet
+Colin Pelletier
+Killian Raude
 """
-
 import numpy as np
 from paths_constants import *
 from sklearn.metrics import RocCurveDisplay
