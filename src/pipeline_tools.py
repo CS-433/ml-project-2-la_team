@@ -1,8 +1,8 @@
-# Tools to pre-process images during the ML pipeline, 
+# Tools to pre-process images during the ML pipeline,
 # import images and display them.
 #
-# Author: Amy Jang, Software Engineering Intern at Google (TensorFlow). 
-#   Kaggle profile: https://www.kaggle.com/amyjang  
+# Author: Amy Jang, Software Engineering Intern at Google (TensorFlow).
+#   Kaggle profile: https://www.kaggle.com/amyjang
 #
 # Update: Colin Pelletier, Joris Monnet and Kilian Raude
 import tensorflow as tf
@@ -13,22 +13,21 @@ import os
 # Image import and pre-processing
 #
 class ImageTools:
-
-    def __init__(self, image_size, num_parallel_calls, normal_folder_name, resize_image=True):
+    def __init__(
+        self, image_size, num_parallel_calls, normal_folder_name, resize_image=True
+    ):
         """Params : image_size = size of the images, num_parallel_calls = number of calls in parallel"""
         self.image_size = image_size
         self.num_parallel_calls = num_parallel_calls
         self.normal_folder_name = normal_folder_name
         self.resize_image = resize_image
 
-
     def get_label(self, file_path):
         """Get the labels from a file located in file_path parameter"""
         # convert the path to a list of path components
         label_part = tf.strings.split(file_path, os.path.sep)[-3]
-        
-        return label_part != self.normal_folder_name
 
+        return label_part != self.normal_folder_name
 
     def decode_img(self, img):
         """Take an image in input, put in it in the right format(3 channels, [0,1] range) and resize it"""
@@ -42,7 +41,6 @@ class ImageTools:
 
         return img
 
-
     def process_path(self, file_path):
         """Process an image by getting its label and decoding it with decode_img().
         @Param file_path
@@ -54,7 +52,6 @@ class ImageTools:
         img = self.decode_img(img)
         return img, label
 
-    
     def load_images_from_filenames(self, ds):
         """Load images in parallel from their filenames"""
         return ds.map(self.process_path, num_parallel_calls=self.num_parallel_calls)
@@ -64,7 +61,10 @@ class ImageTools:
 # Batch import
 #
 
-def prepare_for_training(ds, batch_size, buffer_size, cache=True, shuffle_buffer_size=1000):
+
+def prepare_for_training(
+    ds, batch_size, buffer_size, cache=True, shuffle_buffer_size=1000
+):
     """Cache the dataset, then shuffle, batch and prefetch"""
     # This is a small dataset, only load it once, and keep it in memory.
     # use `.cache(filename)` to cache preprocessing work for datasets that don't
@@ -84,7 +84,7 @@ def prepare_for_training(ds, batch_size, buffer_size, cache=True, shuffle_buffer
 
     # `prefetch` lets the dataset fetch batches in the background while the model
     # is training.
-    #ds = ds.prefetch(buffer_size=AUTOTUNE) TODO remove it
+    # ds = ds.prefetch(buffer_size=AUTOTUNE) TODO remove it
     ds = ds.prefetch(buffer_size=buffer_size)
 
     return ds

@@ -36,8 +36,9 @@ adder = {
     "invisibleDot": lambda i: addDot(i, getNeighboursMeanColor(i)),
     "dotDate": lambda i: adder["date"](adder["dot"](i)),
     "dotDateFixed": lambda i: adder["dateFixed"](adder["dot"](i)),
-    "invisible_dotdate": lambda i : adder["date"](adder["invisible_dot"](i))
+    "invisible_dotdate": lambda i: adder["date"](adder["invisible_dot"](i)),
 }
+
 
 def addDate(i, bool):
     """Add date to image i"""

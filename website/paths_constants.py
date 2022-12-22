@@ -7,7 +7,7 @@ Killian Raude
 path = {
     "Raw": "img/raw/",
     "Dot": "img/dot/",
-    "normal":"img/normal/",
+    "normal": "img/normal/",
     "Date": "img/date/",
     "Dot and Date": "img/dotdate/",
     "Invisible_Dot": "img/invisible_dot/",
@@ -17,7 +17,7 @@ path = {
     "dot_model": "generated/dot_model/",
     "dotDate_model": "generated/dot_model/",
     "invisibleDot_model": "generated/invisibleDot_model/",
-    "raw_model":"generated/raw_model/",
+    "raw_model": "generated/raw_model/",
 }
 
 modelPath = {
@@ -29,12 +29,12 @@ modelPath = {
 }
 
 gradcams = {
-    "Date":"img/gradcams/date_model/Pneumonia/gradcam.jpeg",
-    "Dot":"img/gradcams/dot_model/Pneumonia/gradcam.jpeg",
-    "Date_original":"img/gradcams/date_model/Normal/gradcam.jpeg",
-    "Raw":"img/gradcams/raw_model/Pneumonia/gradcam.jpeg",
-    "Dot and Date":"img/gradcams/dotDate_model/Pneumonia/gradcam.jpeg",
-    "Invisible_dot":"img/gradcams/invisible_dot_model/Pneumonia/gradcam.jpeg"
+    "Date": "img/gradcams/date_model/Pneumonia/gradcam.jpeg",
+    "Dot": "img/gradcams/dot_model/Pneumonia/gradcam.jpeg",
+    "Date_original": "img/gradcams/date_model/Normal/gradcam.jpeg",
+    "Raw": "img/gradcams/raw_model/Pneumonia/gradcam.jpeg",
+    "Dot and Date": "img/gradcams/dotDate_model/Pneumonia/gradcam.jpeg",
+    "Invisible_dot": "img/gradcams/invisible_dot_model/Pneumonia/gradcam.jpeg",
 }
 
 absolutePath = "/app/ml-project-2-la_team/"

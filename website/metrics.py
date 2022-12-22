@@ -128,13 +128,14 @@ class Metrics:
         """Standard deviation of an array"""
         return np.std(self.predictions_prob)
 
-    def p_values(self): 
+    def p_values(self):
         """return the p values"""
-        _,p_value = ttest_ind(self.predictions,self.labels)
+        _, p_value = ttest_ind(self.predictions, self.labels)
         return p_value
+
     ####################################
 
-    def figToImage(self,fig):
+    def figToImage(self, fig):
         """Convert a Matplotlib figure to a PIL Image"""
         import io
 
@@ -144,9 +145,8 @@ class Metrics:
         img = Image.open(buf)
         return img
 
-
     def getAuroc(self):
-        """Plot the roc curve """
+        """Plot the roc curve"""
         RocCurveDisplay.from_predictions(
             self.labels_prob.ravel(),
             self.predictions_prob.ravel(),
